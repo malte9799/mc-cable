@@ -1,0 +1,10 @@
+{
+  "values": [
+    {
+      "id": "#cable:load/dependencies",
+      "required": false
+    },
+    "#cable:load/enumerate",
+    "#cable:load/resolve"
+  ]
+}

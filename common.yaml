@@ -1,0 +1,50 @@
+data_pack:
+  zipped: false
+
+resource_pack:
+  zipped: false
+
+require:
+  - plugin.allow_function_without_name
+  - mecha.contrib.messages
+  - beet.contrib.render
+  - beet.contrib.model_merging
+  - bolt
+
+pipeline:
+  - mecha
+  - beet.contrib.function_header
+  - smithed_libraries.plugins.versioning
+  - mecha.contrib.messages
+  - beet.contrib.render
+  - plugin.minify_functions
+
+meta:
+  function_header:
+    match:
+      - cable:*
+  mecha:
+    formatting: preserve
+    multiline: true
+    commands:
+      # - "@mecha/resources/1_21.json"
+      - "commands.json"
+
+  smithed:
+    versioning:
+      scheduled_paths: impl/tick
+      lantern_load:
+        step: load
+        tag_path: load
+        function_path: impl/load
+
+      refactor:
+        match: "{{ project_id }}:*"
+        find: "{{ project_id }}:impl/"
+        replace: "{{ project_id }}:v{{ version }}/"
+
+      api:
+        match: "{{ project_id }}:v{{ version }}"
+        implementation_prefix: "{{ project_id }}:v{{ version }}/"
+        version_check_path: "v{{ version }}/calls"
+        tag_path: "calls"

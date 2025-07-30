@@ -1,0 +1,7 @@
+{
+  "parent": "cable:base/core",
+  "textures": {
+    "0": "example:block/debug_cable",
+    "particle": "example:block/debug_cable"
+  }
+}

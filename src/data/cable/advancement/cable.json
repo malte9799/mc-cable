@@ -1,0 +1,18 @@
+{
+  "display": {
+    "title": "Cable",
+    "description": "",
+    "icon": {
+      "id": "minecraft:conduit"
+    },
+    "frame": "challenge",
+    "show_toast": false,
+    "announce_to_chat": false
+  },
+  "parent": "ms:9799ms",
+  "criteria": {
+    "trigger": {
+      "trigger": "minecraft:tick"
+    }
+  }
+}

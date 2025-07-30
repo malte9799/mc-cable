@@ -1,0 +1,21 @@
+{
+  "function": "minecraft:set_lore",
+  "entity": "this",
+  "lore": [
+    [
+      "",
+      {
+        "text": "I",
+        "color": "white",
+        "font": "cable:gui",
+        "italic": false
+      },
+      {
+        "text": "cable",
+        "color": "blue",
+        "italic": false
+      }
+    ]
+  ],
+  "mode": "append"
+}

@@ -1,0 +1,26 @@
+id: "cable"
+name: "Cables"
+description: ""
+author: "9799ms"
+version: "1.0.0"
+minecraft: "1.21" # 1.21.5
+
+meta:
+  lsp:
+    excluded_plugins:
+      - smithed_libraries.plugins.versioning
+
+output: "build"
+data_pack:
+  zipped: false
+  load: ["./src"]
+  pack_format: 81
+resource_pack:
+  zipped: false
+  load: ["./libs/*", "./src"]
+  pack_format: 64
+
+require:
+  - plugin.done_message
+
+extend: ["common.yaml"]
