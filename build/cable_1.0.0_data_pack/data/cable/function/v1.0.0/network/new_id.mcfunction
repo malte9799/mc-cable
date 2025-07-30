@@ -6,3 +6,4 @@ execute if score #global_network cable.network.low matches 2147483647 run scoreb
 execute if score #global_network cable.network.low matches 2147483647 run scoreboard players set #global_network cable.network.low 1
 scoreboard players operation @s cable.network.low = #global_network cable.network.low
 scoreboard players operation @s cable.network.high = #global_network cable.network.high
+return 1

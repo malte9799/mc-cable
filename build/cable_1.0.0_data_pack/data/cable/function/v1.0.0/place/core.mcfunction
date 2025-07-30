@@ -6,7 +6,7 @@
 #	   index: int
 #	   components: {}
 
-tp @s ~ ~ ~ ~ ~
+tp @s ~0.5 ~0.5 ~0.5 ~ ~
 execute unless score @s cable.network.low matches 1.. run function cable:v1.0.0/network/new_id
 data merge entity @s {Tags: ["cable", "cable.network", "cable.core"], item_display: "fixed", item: {id: "coal"}}
 data modify entity @s item.components set from storage cable:data input.components
