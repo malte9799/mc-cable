@@ -17,7 +17,7 @@ data_pack:
   pack_format: 81
 resource_pack:
   zipped: false
-  load: ["./libs/*", "./src"]
+  load: ["./src"]
   pack_format: 64
 
 require:
