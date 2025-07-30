@@ -58,6 +58,6 @@
     }
   },
   "rewards": {
-    "function": "cable:v1.0.0/event/placed_custom_block"
+    "function": "cable:v1.0.0/event/placed_cable"
   }
 }
