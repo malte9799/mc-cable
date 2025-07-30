@@ -3,8 +3,8 @@
 # @context align xyz
 # @input
 #   storage cable:data input (entry of cable:data registry)
-#	   index: int
-#	   components: {}
+#       index: int
+#       components: {}
 
 execute if score #new cable.network.low matches 1.. run function cable:v1.0.0/network/regen
 execute if score #new cable.network.low matches 0 run function cable:v1.0.0/network/copy

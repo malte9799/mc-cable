@@ -3,8 +3,8 @@
 # @context align xyz
 # @input
 #   storage cable:data input (entry of cable:data registry)
-#	   index: int
-#	   components: {}
+#       index: int
+#       components: {}
 
 execute store result score #predicate cable.type run data get storage cable:data input.index
 execute as @e[limit=1, dx=0, type=item_display, tag=cable, predicate=cable:same_type] run return run function cable:v1.0.0/destroy

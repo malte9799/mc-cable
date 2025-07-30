@@ -3,7 +3,7 @@
 # @context align xyz
 # @input
 #   storage cable:data input (entry of cable:data registry)
-#	   index: int
+#       index: int
 
 data modify storage cable:data temp set value [{i: -1}, {i: -1}, {i: -1}, {i: -1}, {i: -1}, {i: -1}, {i: -1}, {i: -1}, {i: -1}]
 execute as @e[type=item_display, dx=0, tag=cable.core, tag=!cable.checked] run function cable:v1.0.0/offset/enumerate with entity @s item.components."minecraft:custom_data"

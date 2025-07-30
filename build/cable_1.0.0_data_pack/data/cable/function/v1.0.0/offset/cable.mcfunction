@@ -3,7 +3,7 @@
 # @context align xyz
 # @input
 #   storage cable:data input (entry of cable:data registry)
-#	   index: int
+#       index: int
 
 scoreboard players operation #predicate cable.direction = @s cable.direction
 data modify storage cable:data temp set value [{i: -1}, {i: -1}, {i: -1}, {i: -1}, {i: -1}, {i: -1}, {i: -1}, {i: -1}, {i: -1}]
@@ -15,4 +15,4 @@ function cable:v1.0.0/offset/cable_2
 scoreboard players operation #predicate cable.direction *= #-1 cable.math
 execute positioned ^ ^ ^1 run function cable:v1.0.0/offset/cable_2
 
-execute positioned ^ ^ ^1 facing ^ ^ ^-1 run function cable:v1.0.0/offset/core
+execute positioned ^ ^ ^1 run function cable:v1.0.0/offset/core

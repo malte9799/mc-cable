@@ -3,8 +3,8 @@
 # @context align xyz
 # @input
 #   storage cable:data input (entry of cable:data registry)
-#	   index: int
-#	   components: {}
+#       index: int
+#       components: {}
 
 tp @s ~0.5 ~0.5 ~0.5 ~ ~
 function cable:v1.0.0/network/set

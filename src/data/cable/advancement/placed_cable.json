@@ -7,7 +7,7 @@
           {
             "condition": "minecraft:match_tool",
             "predicate": {
-              "items": "minecraft:firework_rocket",
+              "items": "minecraft:glow_item_frame",
               "predicates": {
                 "minecraft:custom_data": {
                   "cable": true
@@ -20,6 +20,6 @@
     }
   },
   "rewards": {
-    "function": "cable:impl/event/placed_rocket"
+    "function": "cable:impl/event/placed_cable"
   }
 }

@@ -3,8 +3,8 @@
 # @context align xyz
 # @input
 #   storage cable:data input (entry of cable:data registry)
-#	   index: int
-#	   components: {}
+#       index: int
+#       components: {}
 
 tp @s ~0.5 ~0.5 ~0.5 ~ ~
 execute unless score @s cable.network.low matches 1.. run function cable:v1.0.0/network/new_id

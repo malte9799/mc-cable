@@ -3,7 +3,7 @@
 # @context align xyz
 # @input
 #   storage cable:data input (entry of cable:data registry)
-#	   index: int
+#       index: int
 
 execute store result score @s cable.type run data get storage cable:data input.index
 scoreboard players set #dir cable.direction 0

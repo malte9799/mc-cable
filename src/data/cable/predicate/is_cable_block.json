@@ -1,7 +1,0 @@
-{
-  "condition": "minecraft:entity_properties",
-  "entity": "this",
-  "predicate": {
-    "nbt": "{FireworksItem:{components:{\"minecraft:custom_data\":{cable:1b}}}}"
-  }
-}
