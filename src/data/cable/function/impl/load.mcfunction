@@ -1,8 +1,10 @@
-gamerule maxCommandChainLength 2147483647
-gamerule maxCommandForkCount 2147483647
+#2147483647
+gamerule maxCommandChainLength 65536
+gamerule maxCommandForkCount 65536
 scoreboard objectives add cable.math dummy
-scoreboard players set #2 cable.math 2
 scoreboard players set #-1 cable.math -1
+scoreboard players set #2 cable.math 2
+scoreboard players set #10 cable.math 10
 
 scoreboard objectives add cable.network.low dummy
 scoreboard objectives add cable.network.high dummy

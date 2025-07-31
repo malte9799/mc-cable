@@ -18,7 +18,8 @@
   ],
   "display": {
     "gui": {
-      "rotation": [30, 45, 0]
+      "rotation": [30, 45, 0],
+      "scale": [2.5, 2.5, 2.5]
     }
   }
 }

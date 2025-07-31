@@ -1,9 +1,0 @@
-{
-  "parent": "wireframe:item/wireframe_white",
-  "display": {
-    "fixed": {
-      "translation": [0, 0, 1.25],
-      "scale": [1.71875, 1.71875, 0.15625]
-    }
-  }
-}

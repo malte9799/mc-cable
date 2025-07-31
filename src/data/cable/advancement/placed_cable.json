@@ -10,7 +10,9 @@
               "items": "minecraft:glow_item_frame",
               "predicates": {
                 "minecraft:custom_data": {
-                  "cable": true
+                  "cable": {
+                    "id": "cable"
+                  }
                 }
               }
             }
