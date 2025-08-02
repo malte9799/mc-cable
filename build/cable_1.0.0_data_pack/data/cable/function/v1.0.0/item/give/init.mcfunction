@@ -1,4 +1,4 @@
-#> cable:item/give_2
+#> cable:v1.0.0/item/give/init
 #
 
 tag @s remove cable.item

@@ -6,17 +6,13 @@ resource_pack:
 
 require:
   - plugin.allow_function_without_name
-  - mecha.contrib.messages
-  - beet.contrib.render
-  - beet.contrib.model_merging
   - bolt
 
 pipeline:
   - mecha
-  - beet.contrib.function_header
   - smithed_libraries.plugins.versioning
-  - mecha.contrib.messages
-  - beet.contrib.render
+  - plugin.remove_empty_files
+  - beet.contrib.function_header
   - plugin.minify_functions
 
 meta:

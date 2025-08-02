@@ -1,0 +1,29 @@
+{
+  "criteria": {
+    "_": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "player": {
+          "flags": {
+            "is_sneaking": true
+          }
+        },
+        "items": [
+          {
+            "items": "poisonous_potato",
+            "predicates": {
+              "minecraft:custom_data": {
+                "cable": {
+                  "id": "cable:wrench"
+                }
+              }
+            }
+          }
+        ]
+      }
+    }
+  },
+  "rewards": {
+    "function": "cable:impl/item/wrench/switch"
+  }
+}
