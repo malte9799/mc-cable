@@ -1,0 +1,18 @@
+Flotas: [
+    {
+        0: no Cable
+        1: Core + Cable
+        2: Core + Cable + Connection
+    }
+]
+Flags: [
+    no Core
+    Outline
+    Input
+    Output
+]
+Colors: [
+    Cable Tint
+    Input Color
+    Output Color
+]

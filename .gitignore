@@ -1,3 +1,5 @@
 .beet_cache
 __pycache__
 libs/*
+build/
+.DS_STORE

@@ -1,0 +1,7 @@
+{
+  "parent": "cable:base/core",
+  "textures": {
+    "0": "cable:block/cable/redstone",
+    "particle": "cable:block/cable/redstone"
+  }
+}
