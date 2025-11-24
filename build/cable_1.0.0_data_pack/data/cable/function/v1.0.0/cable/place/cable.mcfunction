@@ -8,7 +8,7 @@
 
 tp @s ~0.5 ~0.5 ~0.5 ~ ~
 function cable:v1.0.0/cable/network/set
-data merge entity @s {Tags: ["cable", "cable.init", "cable.network", "cable.cable"], item_display: "fixed", item: {id: "coal"}}
+data merge entity @s {Tags: ["cable", "cable.node", "cable.network", "cable.cable"], item_display: "fixed", item: {id: "coal"}}
 data modify entity @s item.components set from storage cable:data input.components
 data modify entity @s item.components."minecraft:custom_model_data".floats set value [1.0f]
 scoreboard players operation @s cable.type = #predicate cable.type

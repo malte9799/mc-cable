@@ -4546,7 +4546,9 @@
             "axes": {
               "type": "argument",
               "parser": "minecraft:swizzle",
-              "redirect": ["execute"]
+              "redirect": [
+                "execute"
+              ]
             }
           }
         },
@@ -4556,7 +4558,9 @@
             "anchor": {
               "type": "argument",
               "parser": "minecraft:entity_anchor",
-              "redirect": ["execute"]
+              "redirect": [
+                "execute"
+              ]
             }
           }
         },
@@ -4570,7 +4574,9 @@
                 "type": "entities",
                 "amount": "multiple"
               },
-              "redirect": ["execute"]
+              "redirect": [
+                "execute"
+              ]
             }
           }
         },
@@ -4584,7 +4590,9 @@
                 "type": "entities",
                 "amount": "multiple"
               },
-              "redirect": ["execute"]
+              "redirect": [
+                "execute"
+              ]
             }
           }
         },
@@ -4600,7 +4608,9 @@
                     "anchor": {
                       "type": "argument",
                       "parser": "minecraft:entity_anchor",
-                      "redirect": ["execute"]
+                      "redirect": [
+                        "execute"
+                      ]
                     }
                   },
                   "parser": "minecraft:entity",
@@ -4614,7 +4624,9 @@
             "pos": {
               "type": "argument",
               "parser": "minecraft:vec3",
-              "redirect": ["execute"]
+              "redirect": [
+                "execute"
+              ]
             }
           }
         },
@@ -4634,7 +4646,9 @@
                       "properties": {
                         "registry": "minecraft:worldgen/biome"
                       },
-                      "redirect": ["execute"]
+                      "redirect": [
+                        "execute"
+                      ]
                     }
                   },
                   "parser": "minecraft:block_pos"
@@ -4651,7 +4665,9 @@
                       "type": "argument",
                       "executable": true,
                       "parser": "minecraft:block_predicate",
-                      "redirect": ["execute"]
+                      "redirect": [
+                        "execute"
+                      ]
                     }
                   },
                   "parser": "minecraft:block_pos"
@@ -4673,12 +4689,16 @@
                             "all": {
                               "type": "literal",
                               "executable": true,
-                              "redirect": ["execute"]
+                              "redirect": [
+                                "execute"
+                              ]
                             },
                             "masked": {
                               "type": "literal",
                               "executable": true,
-                              "redirect": ["execute"]
+                              "redirect": [
+                                "execute"
+                              ]
                             }
                           },
                           "parser": "minecraft:block_pos"
@@ -4704,7 +4724,9 @@
                           "type": "argument",
                           "executable": true,
                           "parser": "minecraft:nbt_path",
-                          "redirect": ["execute"]
+                          "redirect": [
+                            "execute"
+                          ]
                         }
                       },
                       "parser": "minecraft:block_pos"
@@ -4721,7 +4743,9 @@
                           "type": "argument",
                           "executable": true,
                           "parser": "minecraft:nbt_path",
-                          "redirect": ["execute"]
+                          "redirect": [
+                            "execute"
+                          ]
                         }
                       },
                       "parser": "minecraft:entity",
@@ -4742,7 +4766,9 @@
                           "type": "argument",
                           "executable": true,
                           "parser": "minecraft:nbt_path",
-                          "redirect": ["execute"]
+                          "redirect": [
+                            "execute"
+                          ]
                         }
                       },
                       "parser": "minecraft:resource_location"
@@ -4758,7 +4784,9 @@
                   "type": "argument",
                   "executable": true,
                   "parser": "minecraft:dimension",
-                  "redirect": ["execute"]
+                  "redirect": [
+                    "execute"
+                  ]
                 }
               }
             },
@@ -4773,7 +4801,9 @@
                     "type": "entities",
                     "amount": "multiple"
                   },
-                  "redirect": ["execute"]
+                  "redirect": [
+                    "execute"
+                  ]
                 }
               }
             },
@@ -4783,7 +4813,9 @@
                 "name": {
                   "type": "argument",
                   "parser": "minecraft:function",
-                  "redirect": ["execute"]
+                  "redirect": [
+                    "execute"
+                  ]
                 }
               }
             },
@@ -4803,7 +4835,9 @@
                               "type": "argument",
                               "executable": true,
                               "parser": "minecraft:item_predicate",
-                              "redirect": ["execute"]
+                              "redirect": [
+                                "execute"
+                              ]
                             }
                           },
                           "parser": "minecraft:item_slots"
@@ -4826,7 +4860,9 @@
                               "type": "argument",
                               "executable": true,
                               "parser": "minecraft:item_predicate",
-                              "redirect": ["execute"]
+                              "redirect": [
+                                "execute"
+                              ]
                             }
                           },
                           "parser": "minecraft:item_slots"
@@ -4849,7 +4885,9 @@
                   "type": "argument",
                   "executable": true,
                   "parser": "minecraft:block_pos",
-                  "redirect": ["execute"]
+                  "redirect": [
+                    "execute"
+                  ]
                 }
               }
             },
@@ -4860,7 +4898,9 @@
                   "type": "argument",
                   "executable": true,
                   "parser": "minecraft:loot_predicate",
-                  "redirect": ["execute"]
+                  "redirect": [
+                    "execute"
+                  ]
                 }
               }
             },
@@ -4883,7 +4923,9 @@
                                   "type": "argument",
                                   "executable": true,
                                   "parser": "minecraft:objective",
-                                  "redirect": ["execute"]
+                                  "redirect": [
+                                    "execute"
+                                  ]
                                 }
                               },
                               "parser": "minecraft:score_holder",
@@ -4903,7 +4945,9 @@
                                   "type": "argument",
                                   "executable": true,
                                   "parser": "minecraft:objective",
-                                  "redirect": ["execute"]
+                                  "redirect": [
+                                    "execute"
+                                  ]
                                 }
                               },
                               "parser": "minecraft:score_holder",
@@ -4923,7 +4967,9 @@
                                   "type": "argument",
                                   "executable": true,
                                   "parser": "minecraft:objective",
-                                  "redirect": ["execute"]
+                                  "redirect": [
+                                    "execute"
+                                  ]
                                 }
                               },
                               "parser": "minecraft:score_holder",
@@ -4943,7 +4989,9 @@
                                   "type": "argument",
                                   "executable": true,
                                   "parser": "minecraft:objective",
-                                  "redirect": ["execute"]
+                                  "redirect": [
+                                    "execute"
+                                  ]
                                 }
                               },
                               "parser": "minecraft:score_holder",
@@ -4963,7 +5011,9 @@
                                   "type": "argument",
                                   "executable": true,
                                   "parser": "minecraft:objective",
-                                  "redirect": ["execute"]
+                                  "redirect": [
+                                    "execute"
+                                  ]
                                 }
                               },
                               "parser": "minecraft:score_holder",
@@ -4980,7 +5030,9 @@
                               "type": "argument",
                               "executable": true,
                               "parser": "minecraft:int_range",
-                              "redirect": ["execute"]
+                              "redirect": [
+                                "execute"
+                              ]
                             }
                           }
                         }
@@ -5003,7 +5055,9 @@
             "dimension": {
               "type": "argument",
               "parser": "minecraft:dimension",
-              "redirect": ["execute"]
+              "redirect": [
+                "execute"
+              ]
             }
           }
         },
@@ -5012,35 +5066,51 @@
           "children": {
             "attacker": {
               "type": "literal",
-              "redirect": ["execute"]
+              "redirect": [
+                "execute"
+              ]
             },
             "controller": {
               "type": "literal",
-              "redirect": ["execute"]
+              "redirect": [
+                "execute"
+              ]
             },
             "leasher": {
               "type": "literal",
-              "redirect": ["execute"]
+              "redirect": [
+                "execute"
+              ]
             },
             "origin": {
               "type": "literal",
-              "redirect": ["execute"]
+              "redirect": [
+                "execute"
+              ]
             },
             "owner": {
               "type": "literal",
-              "redirect": ["execute"]
+              "redirect": [
+                "execute"
+              ]
             },
             "passengers": {
               "type": "literal",
-              "redirect": ["execute"]
+              "redirect": [
+                "execute"
+              ]
             },
             "target": {
               "type": "literal",
-              "redirect": ["execute"]
+              "redirect": [
+                "execute"
+              ]
             },
             "vehicle": {
               "type": "literal",
-              "redirect": ["execute"]
+              "redirect": [
+                "execute"
+              ]
             }
           }
         },
@@ -5057,7 +5127,9 @@
                     "type": "entities",
                     "amount": "multiple"
                   },
-                  "redirect": ["execute"]
+                  "redirect": [
+                    "execute"
+                  ]
                 }
               }
             },
@@ -5067,14 +5139,18 @@
                 "heightmap": {
                   "type": "argument",
                   "parser": "minecraft:heightmap",
-                  "redirect": ["execute"]
+                  "redirect": [
+                    "execute"
+                  ]
                 }
               }
             },
             "pos": {
               "type": "argument",
               "parser": "minecraft:vec3",
-              "redirect": ["execute"]
+              "redirect": [
+                "execute"
+              ]
             }
           }
         },
@@ -5091,14 +5167,18 @@
                     "type": "entities",
                     "amount": "multiple"
                   },
-                  "redirect": ["execute"]
+                  "redirect": [
+                    "execute"
+                  ]
                 }
               }
             },
             "rot": {
               "type": "argument",
               "parser": "minecraft:rotation",
-              "redirect": ["execute"]
+              "redirect": [
+                "execute"
+              ]
             }
           }
         },
@@ -5126,7 +5206,9 @@
                                 "scale": {
                                   "type": "argument",
                                   "parser": "brigadier:double",
-                                  "redirect": ["execute"]
+                                  "redirect": [
+                                    "execute"
+                                  ]
                                 }
                               }
                             },
@@ -5136,7 +5218,9 @@
                                 "scale": {
                                   "type": "argument",
                                   "parser": "brigadier:double",
-                                  "redirect": ["execute"]
+                                  "redirect": [
+                                    "execute"
+                                  ]
                                 }
                               }
                             },
@@ -5146,7 +5230,9 @@
                                 "scale": {
                                   "type": "argument",
                                   "parser": "brigadier:double",
-                                  "redirect": ["execute"]
+                                  "redirect": [
+                                    "execute"
+                                  ]
                                 }
                               }
                             },
@@ -5156,7 +5242,9 @@
                                 "scale": {
                                   "type": "argument",
                                   "parser": "brigadier:double",
-                                  "redirect": ["execute"]
+                                  "redirect": [
+                                    "execute"
+                                  ]
                                 }
                               }
                             },
@@ -5166,7 +5254,9 @@
                                 "scale": {
                                   "type": "argument",
                                   "parser": "brigadier:double",
-                                  "redirect": ["execute"]
+                                  "redirect": [
+                                    "execute"
+                                  ]
                                 }
                               }
                             },
@@ -5176,7 +5266,9 @@
                                 "scale": {
                                   "type": "argument",
                                   "parser": "brigadier:double",
-                                  "redirect": ["execute"]
+                                  "redirect": [
+                                    "execute"
+                                  ]
                                 }
                               }
                             }
@@ -5196,11 +5288,15 @@
                       "children": {
                         "max": {
                           "type": "literal",
-                          "redirect": ["execute"]
+                          "redirect": [
+                            "execute"
+                          ]
                         },
                         "value": {
                           "type": "literal",
-                          "redirect": ["execute"]
+                          "redirect": [
+                            "execute"
+                          ]
                         }
                       },
                       "parser": "minecraft:resource_location"
@@ -5222,7 +5318,9 @@
                                 "scale": {
                                   "type": "argument",
                                   "parser": "brigadier:double",
-                                  "redirect": ["execute"]
+                                  "redirect": [
+                                    "execute"
+                                  ]
                                 }
                               }
                             },
@@ -5232,7 +5330,9 @@
                                 "scale": {
                                   "type": "argument",
                                   "parser": "brigadier:double",
-                                  "redirect": ["execute"]
+                                  "redirect": [
+                                    "execute"
+                                  ]
                                 }
                               }
                             },
@@ -5242,7 +5342,9 @@
                                 "scale": {
                                   "type": "argument",
                                   "parser": "brigadier:double",
-                                  "redirect": ["execute"]
+                                  "redirect": [
+                                    "execute"
+                                  ]
                                 }
                               }
                             },
@@ -5252,7 +5354,9 @@
                                 "scale": {
                                   "type": "argument",
                                   "parser": "brigadier:double",
-                                  "redirect": ["execute"]
+                                  "redirect": [
+                                    "execute"
+                                  ]
                                 }
                               }
                             },
@@ -5262,7 +5366,9 @@
                                 "scale": {
                                   "type": "argument",
                                   "parser": "brigadier:double",
-                                  "redirect": ["execute"]
+                                  "redirect": [
+                                    "execute"
+                                  ]
                                 }
                               }
                             },
@@ -5272,7 +5378,9 @@
                                 "scale": {
                                   "type": "argument",
                                   "parser": "brigadier:double",
-                                  "redirect": ["execute"]
+                                  "redirect": [
+                                    "execute"
+                                  ]
                                 }
                               }
                             }
@@ -5297,7 +5405,9 @@
                         "objective": {
                           "type": "argument",
                           "parser": "minecraft:objective",
-                          "redirect": ["execute"]
+                          "redirect": [
+                            "execute"
+                          ]
                         }
                       },
                       "parser": "minecraft:score_holder",
@@ -5322,7 +5432,9 @@
                                 "scale": {
                                   "type": "argument",
                                   "parser": "brigadier:double",
-                                  "redirect": ["execute"]
+                                  "redirect": [
+                                    "execute"
+                                  ]
                                 }
                               }
                             },
@@ -5332,7 +5444,9 @@
                                 "scale": {
                                   "type": "argument",
                                   "parser": "brigadier:double",
-                                  "redirect": ["execute"]
+                                  "redirect": [
+                                    "execute"
+                                  ]
                                 }
                               }
                             },
@@ -5342,7 +5456,9 @@
                                 "scale": {
                                   "type": "argument",
                                   "parser": "brigadier:double",
-                                  "redirect": ["execute"]
+                                  "redirect": [
+                                    "execute"
+                                  ]
                                 }
                               }
                             },
@@ -5352,7 +5468,9 @@
                                 "scale": {
                                   "type": "argument",
                                   "parser": "brigadier:double",
-                                  "redirect": ["execute"]
+                                  "redirect": [
+                                    "execute"
+                                  ]
                                 }
                               }
                             },
@@ -5362,7 +5480,9 @@
                                 "scale": {
                                   "type": "argument",
                                   "parser": "brigadier:double",
-                                  "redirect": ["execute"]
+                                  "redirect": [
+                                    "execute"
+                                  ]
                                 }
                               }
                             },
@@ -5372,7 +5492,9 @@
                                 "scale": {
                                   "type": "argument",
                                   "parser": "brigadier:double",
-                                  "redirect": ["execute"]
+                                  "redirect": [
+                                    "execute"
+                                  ]
                                 }
                               }
                             }
@@ -5404,7 +5526,9 @@
                                 "scale": {
                                   "type": "argument",
                                   "parser": "brigadier:double",
-                                  "redirect": ["execute"]
+                                  "redirect": [
+                                    "execute"
+                                  ]
                                 }
                               }
                             },
@@ -5414,7 +5538,9 @@
                                 "scale": {
                                   "type": "argument",
                                   "parser": "brigadier:double",
-                                  "redirect": ["execute"]
+                                  "redirect": [
+                                    "execute"
+                                  ]
                                 }
                               }
                             },
@@ -5424,7 +5550,9 @@
                                 "scale": {
                                   "type": "argument",
                                   "parser": "brigadier:double",
-                                  "redirect": ["execute"]
+                                  "redirect": [
+                                    "execute"
+                                  ]
                                 }
                               }
                             },
@@ -5434,7 +5562,9 @@
                                 "scale": {
                                   "type": "argument",
                                   "parser": "brigadier:double",
-                                  "redirect": ["execute"]
+                                  "redirect": [
+                                    "execute"
+                                  ]
                                 }
                               }
                             },
@@ -5444,7 +5574,9 @@
                                 "scale": {
                                   "type": "argument",
                                   "parser": "brigadier:double",
-                                  "redirect": ["execute"]
+                                  "redirect": [
+                                    "execute"
+                                  ]
                                 }
                               }
                             },
@@ -5454,7 +5586,9 @@
                                 "scale": {
                                   "type": "argument",
                                   "parser": "brigadier:double",
-                                  "redirect": ["execute"]
+                                  "redirect": [
+                                    "execute"
+                                  ]
                                 }
                               }
                             }
@@ -5474,11 +5608,15 @@
                       "children": {
                         "max": {
                           "type": "literal",
-                          "redirect": ["execute"]
+                          "redirect": [
+                            "execute"
+                          ]
                         },
                         "value": {
                           "type": "literal",
-                          "redirect": ["execute"]
+                          "redirect": [
+                            "execute"
+                          ]
                         }
                       },
                       "parser": "minecraft:resource_location"
@@ -5500,7 +5638,9 @@
                                 "scale": {
                                   "type": "argument",
                                   "parser": "brigadier:double",
-                                  "redirect": ["execute"]
+                                  "redirect": [
+                                    "execute"
+                                  ]
                                 }
                               }
                             },
@@ -5510,7 +5650,9 @@
                                 "scale": {
                                   "type": "argument",
                                   "parser": "brigadier:double",
-                                  "redirect": ["execute"]
+                                  "redirect": [
+                                    "execute"
+                                  ]
                                 }
                               }
                             },
@@ -5520,7 +5662,9 @@
                                 "scale": {
                                   "type": "argument",
                                   "parser": "brigadier:double",
-                                  "redirect": ["execute"]
+                                  "redirect": [
+                                    "execute"
+                                  ]
                                 }
                               }
                             },
@@ -5530,7 +5674,9 @@
                                 "scale": {
                                   "type": "argument",
                                   "parser": "brigadier:double",
-                                  "redirect": ["execute"]
+                                  "redirect": [
+                                    "execute"
+                                  ]
                                 }
                               }
                             },
@@ -5540,7 +5686,9 @@
                                 "scale": {
                                   "type": "argument",
                                   "parser": "brigadier:double",
-                                  "redirect": ["execute"]
+                                  "redirect": [
+                                    "execute"
+                                  ]
                                 }
                               }
                             },
@@ -5550,7 +5698,9 @@
                                 "scale": {
                                   "type": "argument",
                                   "parser": "brigadier:double",
-                                  "redirect": ["execute"]
+                                  "redirect": [
+                                    "execute"
+                                  ]
                                 }
                               }
                             }
@@ -5575,7 +5725,9 @@
                         "objective": {
                           "type": "argument",
                           "parser": "minecraft:objective",
-                          "redirect": ["execute"]
+                          "redirect": [
+                            "execute"
+                          ]
                         }
                       },
                       "parser": "minecraft:score_holder",
@@ -5600,7 +5752,9 @@
                                 "scale": {
                                   "type": "argument",
                                   "parser": "brigadier:double",
-                                  "redirect": ["execute"]
+                                  "redirect": [
+                                    "execute"
+                                  ]
                                 }
                               }
                             },
@@ -5610,7 +5764,9 @@
                                 "scale": {
                                   "type": "argument",
                                   "parser": "brigadier:double",
-                                  "redirect": ["execute"]
+                                  "redirect": [
+                                    "execute"
+                                  ]
                                 }
                               }
                             },
@@ -5620,7 +5776,9 @@
                                 "scale": {
                                   "type": "argument",
                                   "parser": "brigadier:double",
-                                  "redirect": ["execute"]
+                                  "redirect": [
+                                    "execute"
+                                  ]
                                 }
                               }
                             },
@@ -5630,7 +5788,9 @@
                                 "scale": {
                                   "type": "argument",
                                   "parser": "brigadier:double",
-                                  "redirect": ["execute"]
+                                  "redirect": [
+                                    "execute"
+                                  ]
                                 }
                               }
                             },
@@ -5640,7 +5800,9 @@
                                 "scale": {
                                   "type": "argument",
                                   "parser": "brigadier:double",
-                                  "redirect": ["execute"]
+                                  "redirect": [
+                                    "execute"
+                                  ]
                                 }
                               }
                             },
@@ -5650,7 +5812,9 @@
                                 "scale": {
                                   "type": "argument",
                                   "parser": "brigadier:double",
-                                  "redirect": ["execute"]
+                                  "redirect": [
+                                    "execute"
+                                  ]
                                 }
                               }
                             }
@@ -5675,7 +5839,9 @@
               "properties": {
                 "registry": "minecraft:entity_type"
               },
-              "redirect": ["execute"]
+              "redirect": [
+                "execute"
+              ]
             }
           }
         },
@@ -5695,7 +5861,9 @@
                       "properties": {
                         "registry": "minecraft:worldgen/biome"
                       },
-                      "redirect": ["execute"]
+                      "redirect": [
+                        "execute"
+                      ]
                     }
                   },
                   "parser": "minecraft:block_pos"
@@ -5712,7 +5880,9 @@
                       "type": "argument",
                       "executable": true,
                       "parser": "minecraft:block_predicate",
-                      "redirect": ["execute"]
+                      "redirect": [
+                        "execute"
+                      ]
                     }
                   },
                   "parser": "minecraft:block_pos"
@@ -5734,12 +5904,16 @@
                             "all": {
                               "type": "literal",
                               "executable": true,
-                              "redirect": ["execute"]
+                              "redirect": [
+                                "execute"
+                              ]
                             },
                             "masked": {
                               "type": "literal",
                               "executable": true,
-                              "redirect": ["execute"]
+                              "redirect": [
+                                "execute"
+                              ]
                             }
                           },
                           "parser": "minecraft:block_pos"
@@ -5765,7 +5939,9 @@
                           "type": "argument",
                           "executable": true,
                           "parser": "minecraft:nbt_path",
-                          "redirect": ["execute"]
+                          "redirect": [
+                            "execute"
+                          ]
                         }
                       },
                       "parser": "minecraft:block_pos"
@@ -5782,7 +5958,9 @@
                           "type": "argument",
                           "executable": true,
                           "parser": "minecraft:nbt_path",
-                          "redirect": ["execute"]
+                          "redirect": [
+                            "execute"
+                          ]
                         }
                       },
                       "parser": "minecraft:entity",
@@ -5803,7 +5981,9 @@
                           "type": "argument",
                           "executable": true,
                           "parser": "minecraft:nbt_path",
-                          "redirect": ["execute"]
+                          "redirect": [
+                            "execute"
+                          ]
                         }
                       },
                       "parser": "minecraft:resource_location"
@@ -5819,7 +5999,9 @@
                   "type": "argument",
                   "executable": true,
                   "parser": "minecraft:dimension",
-                  "redirect": ["execute"]
+                  "redirect": [
+                    "execute"
+                  ]
                 }
               }
             },
@@ -5834,7 +6016,9 @@
                     "type": "entities",
                     "amount": "multiple"
                   },
-                  "redirect": ["execute"]
+                  "redirect": [
+                    "execute"
+                  ]
                 }
               }
             },
@@ -5844,7 +6028,9 @@
                 "name": {
                   "type": "argument",
                   "parser": "minecraft:function",
-                  "redirect": ["execute"]
+                  "redirect": [
+                    "execute"
+                  ]
                 }
               }
             },
@@ -5864,7 +6050,9 @@
                               "type": "argument",
                               "executable": true,
                               "parser": "minecraft:item_predicate",
-                              "redirect": ["execute"]
+                              "redirect": [
+                                "execute"
+                              ]
                             }
                           },
                           "parser": "minecraft:item_slots"
@@ -5887,7 +6075,9 @@
                               "type": "argument",
                               "executable": true,
                               "parser": "minecraft:item_predicate",
-                              "redirect": ["execute"]
+                              "redirect": [
+                                "execute"
+                              ]
                             }
                           },
                           "parser": "minecraft:item_slots"
@@ -5910,7 +6100,9 @@
                   "type": "argument",
                   "executable": true,
                   "parser": "minecraft:block_pos",
-                  "redirect": ["execute"]
+                  "redirect": [
+                    "execute"
+                  ]
                 }
               }
             },
@@ -5921,7 +6113,9 @@
                   "type": "argument",
                   "executable": true,
                   "parser": "minecraft:loot_predicate",
-                  "redirect": ["execute"]
+                  "redirect": [
+                    "execute"
+                  ]
                 }
               }
             },
@@ -5944,7 +6138,9 @@
                                   "type": "argument",
                                   "executable": true,
                                   "parser": "minecraft:objective",
-                                  "redirect": ["execute"]
+                                  "redirect": [
+                                    "execute"
+                                  ]
                                 }
                               },
                               "parser": "minecraft:score_holder",
@@ -5964,7 +6160,9 @@
                                   "type": "argument",
                                   "executable": true,
                                   "parser": "minecraft:objective",
-                                  "redirect": ["execute"]
+                                  "redirect": [
+                                    "execute"
+                                  ]
                                 }
                               },
                               "parser": "minecraft:score_holder",
@@ -5984,7 +6182,9 @@
                                   "type": "argument",
                                   "executable": true,
                                   "parser": "minecraft:objective",
-                                  "redirect": ["execute"]
+                                  "redirect": [
+                                    "execute"
+                                  ]
                                 }
                               },
                               "parser": "minecraft:score_holder",
@@ -6004,7 +6204,9 @@
                                   "type": "argument",
                                   "executable": true,
                                   "parser": "minecraft:objective",
-                                  "redirect": ["execute"]
+                                  "redirect": [
+                                    "execute"
+                                  ]
                                 }
                               },
                               "parser": "minecraft:score_holder",
@@ -6024,7 +6226,9 @@
                                   "type": "argument",
                                   "executable": true,
                                   "parser": "minecraft:objective",
-                                  "redirect": ["execute"]
+                                  "redirect": [
+                                    "execute"
+                                  ]
                                 }
                               },
                               "parser": "minecraft:score_holder",
@@ -6041,7 +6245,9 @@
                               "type": "argument",
                               "executable": true,
                               "parser": "minecraft:int_range",
-                              "redirect": ["execute"]
+                              "redirect": [
+                                "execute"
+                              ]
                             }
                           }
                         }
@@ -6146,6 +6352,35 @@
               "properties": {
                 "type": "players",
                 "amount": "multiple"
+              }
+            }
+          }
+        }
+      },
+      "required_level": 2
+    },
+    "fetchprofile": {
+      "type": "literal",
+      "children": {
+        "id": {
+          "type": "literal",
+          "children": {
+            "id": {
+              "type": "argument",
+              "executable": true,
+              "parser": "minecraft:uuid"
+            }
+          }
+        },
+        "name": {
+          "type": "literal",
+          "children": {
+            "name": {
+              "type": "argument",
+              "executable": true,
+              "parser": "brigadier:string",
+              "properties": {
+                "type": "greedy"
               }
             }
           }
@@ -6426,6 +6661,17 @@
     "gamerule": {
       "type": "literal",
       "children": {
+        "allowEnteringNetherUsingPortals": {
+          "type": "literal",
+          "children": {
+            "value": {
+              "type": "argument",
+              "executable": true,
+              "parser": "brigadier:bool"
+            }
+          },
+          "executable": true
+        },
         "allowFireTicksAwayFromPlayer": {
           "type": "literal",
           "children": {
@@ -6460,6 +6706,17 @@
           "executable": true
         },
         "commandBlockOutput": {
+          "type": "literal",
+          "children": {
+            "value": {
+              "type": "argument",
+              "executable": true,
+              "parser": "brigadier:bool"
+            }
+          },
+          "executable": true
+        },
+        "commandBlocksEnabled": {
           "type": "literal",
           "children": {
             "value": {
@@ -6914,6 +7171,17 @@
           },
           "executable": true
         },
+        "pvp": {
+          "type": "literal",
+          "children": {
+            "value": {
+              "type": "argument",
+              "executable": true,
+              "parser": "brigadier:bool"
+            }
+          },
+          "executable": true
+        },
         "randomTickSpeed": {
           "type": "literal",
           "children": {
@@ -6969,17 +7237,13 @@
           },
           "executable": true
         },
-        "spawnChunkRadius": {
+        "spawnMonsters": {
           "type": "literal",
           "children": {
             "value": {
               "type": "argument",
               "executable": true,
-              "parser": "brigadier:integer",
-              "properties": {
-                "max": 32,
-                "min": 0
-              }
+              "parser": "brigadier:bool"
             }
           },
           "executable": true
@@ -6991,6 +7255,17 @@
               "type": "argument",
               "executable": true,
               "parser": "brigadier:integer"
+            }
+          },
+          "executable": true
+        },
+        "spawnerBlocksEnabled": {
+          "type": "literal",
+          "children": {
+            "value": {
+              "type": "argument",
+              "executable": true,
+              "parser": "brigadier:bool"
             }
           },
           "executable": true
@@ -9875,10 +10150,10 @@
         "pos": {
           "type": "argument",
           "children": {
-            "angle": {
+            "rotation": {
               "type": "argument",
               "executable": true,
-              "parser": "minecraft:angle"
+              "parser": "minecraft:rotation"
             }
           },
           "executable": true,
@@ -9897,10 +10172,10 @@
             "pos": {
               "type": "argument",
               "children": {
-                "angle": {
+                "rotation": {
                   "type": "argument",
                   "executable": true,
-                  "parser": "minecraft:angle"
+                  "parser": "minecraft:rotation"
                 }
               },
               "executable": true,
@@ -10561,7 +10836,9 @@
     },
     "tell": {
       "type": "literal",
-      "redirect": ["msg"]
+      "redirect": [
+        "msg"
+      ]
     },
     "tellraw": {
       "type": "literal",
@@ -11112,11 +11389,15 @@
     },
     "tm": {
       "type": "literal",
-      "redirect": ["teammsg"]
+      "redirect": [
+        "teammsg"
+      ]
     },
     "tp": {
       "type": "literal",
-      "redirect": ["teleport"],
+      "redirect": [
+        "teleport"
+      ],
       "required_level": 2
     },
     "transfer": {
@@ -11194,7 +11475,9 @@
     },
     "w": {
       "type": "literal",
-      "redirect": ["msg"]
+      "redirect": [
+        "msg"
+      ]
     },
     "waypoint": {
       "type": "literal",
@@ -11486,7 +11769,9 @@
     },
     "xp": {
       "type": "literal",
-      "redirect": ["experience"],
+      "redirect": [
+        "experience"
+      ],
       "required_level": 2
     }
   }

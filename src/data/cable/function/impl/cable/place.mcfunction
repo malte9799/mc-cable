@@ -16,18 +16,18 @@ execute if score #count cable.math matches 8.. run return fail
 scoreboard players set #new cable.network.low 0
 scoreboard players set #new cable.network.high 0
 
-scoreboard players set #predicate cable.direction 1
-execute rotated -90 0 positioned ^ ^ ^1 as @e[limit=1,dx=0,type=item_display,predicate=cable:same_type] run function ./place/update
-scoreboard players set #predicate cable.direction -1
-execute rotated 90 0 positioned ^ ^ ^1 as @e[limit=1,dx=0,type=item_display,predicate=cable:same_type] run function ./place/update
-scoreboard players set #predicate cable.direction 2
-execute rotated 0 -90 positioned ^ ^ ^1 as @e[limit=1,dx=0,type=item_display,predicate=cable:same_type] run function ./place/update
-scoreboard players set #predicate cable.direction -2
-execute rotated 0 90 positioned ^ ^ ^1 as @e[limit=1,dx=0,type=item_display,predicate=cable:same_type] run function ./place/update
-scoreboard players set #predicate cable.direction 3
-execute rotated 0 0 positioned ^ ^ ^1 as @e[limit=1,dx=0,type=item_display,predicate=cable:same_type] run function ./place/update
-scoreboard players set #predicate cable.direction -3
-execute rotated 180 0 positioned ^ ^ ^1 as @e[limit=1,dx=0,type=item_display,predicate=cable:same_type] run function ./place/update
+scoreboard players set #predicate cable.direction 1 # east
+execute rotated -90 0 positioned ^ ^ ^1 as @e[limit=1,dx=0,type=item_display,tag=cable.node,predicate=cable:same_type] run function ./place/update
+scoreboard players set #predicate cable.direction -1 # west
+execute rotated 90 0 positioned ^ ^ ^1 as @e[limit=1,dx=0,type=item_display,tag=cable.node,predicate=cable:same_type] run function ./place/update
+scoreboard players set #predicate cable.direction 2 # up
+execute rotated 0 -90 positioned ^ ^ ^1 as @e[limit=1,dx=0,type=item_display,tag=cable.node,predicate=cable:same_type] run function ./place/update
+scoreboard players set #predicate cable.direction -2 # down
+execute rotated 0 90 positioned ^ ^ ^1 as @e[limit=1,dx=0,type=item_display,tag=cable.node,predicate=cable:same_type] run function ./place/update
+scoreboard players set #predicate cable.direction 3 # south
+execute rotated 0 0 positioned ^ ^ ^1 as @e[limit=1,dx=0,type=item_display,tag=cable.node,predicate=cable:same_type] run function ./place/update
+scoreboard players set #predicate cable.direction -3 # north
+execute rotated 180 0 positioned ^ ^ ^1 as @e[limit=1,dx=0,type=item_display,tag=cable.node,predicate=cable:same_type] run function ./place/update
 
 function ./place/update:
     execute if score #new cable.network.low matches 1.. run function ./network/regen
@@ -41,7 +41,7 @@ function ./place/update:
     function ./place/cable:
         tp @s ~.5 ~.5 ~.5 ~ ~
         function ./network/set
-        data merge entity @s {Tags:['cable','cable.init','cable.network','cable.cable'],item_display:'fixed',item:{id:'coal'}}
+        data merge entity @s {Tags:['cable','cable.node','cable.network','cable.cable'],item_display:'fixed',item:{id:'coal'}}
         data modify entity @s item.components set from storage cable:data input.components
         data modify entity @s item.components."minecraft:custom_model_data".floats set value [1f]
         scoreboard players operation @s cable.type = #predicate cable.type
@@ -52,8 +52,9 @@ function ./place/update:
 execute if score #new cable.network.low matches 0 summon item_display run function ./place/core:
     tp @s ~.5 ~.5 ~.5 ~ ~
     execute unless score @s cable.network.low matches 1.. run function ./network/new_id
-    data merge entity @s {Tags:['cable','cable.init','cable.network','cable.core'],item_display:'fixed',item:{id:'coal'}}
+    data merge entity @s {Tags:['cable','cable.node','cable.network','cable.core'],item_display:'fixed',item:{id:'coal'}}
     data modify entity @s item.components set from storage cable:data input.components
+    data modify entity @s item.components."minecraft:custom_model_data".floats set value [0f]
     scoreboard players operation @s cable.type = #predicate cable.type
     scoreboard players set @s cable.direction 0
 

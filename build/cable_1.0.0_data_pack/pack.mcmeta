@@ -1,6 +1,14 @@
 {
   "pack": {
-    "pack_format": 81,
-    "description": "Author: 9799ms\nVersion: 1.0.0"
+    "min_format": [
+      88,
+      0
+    ],
+    "max_format": [
+      88,
+      0
+    ],
+    "description": "Author: 9799ms\nVersion: 1.0.0",
+    "pack_format": 81
   }
 }

@@ -13,4 +13,12 @@ scoreboard objectives add cable.network.high dummy
 scoreboard objectives add cable.type dummy
 scoreboard objectives add cable.direction dummy
 
-function example:register
+schedule function cable:v1.0.0/tick 1 replace
+
+data modify storage cable:data input set value {type: "redstone", components: {item_name: "Redstone Cable", item_model: "cable:redstone_cable"}, input: {type: "predicate", predicate: {}}, output: {type: "function", function: "cable:v1.0.0/redstone/input"}}
+
+function cable:register
+
+data modify storage cable:data input set value {type: "debug", components: {item_name: "Debug Cable", item_model: "cable:debug_cable"}, input: {type: "predicate", predicate: {}}, output: {type: "function", function: "cable:v1.0.0/redstone/input"}}
+
+function cable:register

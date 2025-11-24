@@ -19,17 +19,17 @@ scoreboard players set #new cable.network.low 0
 scoreboard players set #new cable.network.high 0
 
 scoreboard players set #predicate cable.direction 1
-execute rotated -90 0 positioned ^ ^ ^1 as @e[limit=1, dx=0, type=item_display, predicate=cable:same_type] run function cable:v1.0.0/cable/place/update
+execute rotated -90 0 positioned ^ ^ ^1 as @e[limit=1, dx=0, type=item_display, tag=cable.node, predicate=cable:same_type] run function cable:v1.0.0/cable/place/update
 scoreboard players set #predicate cable.direction -1
-execute rotated 90 0 positioned ^ ^ ^1 as @e[limit=1, dx=0, type=item_display, predicate=cable:same_type] run function cable:v1.0.0/cable/place/update
+execute rotated 90 0 positioned ^ ^ ^1 as @e[limit=1, dx=0, type=item_display, tag=cable.node, predicate=cable:same_type] run function cable:v1.0.0/cable/place/update
 scoreboard players set #predicate cable.direction 2
-execute rotated 0 -90 positioned ^ ^ ^1 as @e[limit=1, dx=0, type=item_display, predicate=cable:same_type] run function cable:v1.0.0/cable/place/update
+execute rotated 0 -90 positioned ^ ^ ^1 as @e[limit=1, dx=0, type=item_display, tag=cable.node, predicate=cable:same_type] run function cable:v1.0.0/cable/place/update
 scoreboard players set #predicate cable.direction -2
-execute rotated 0 90 positioned ^ ^ ^1 as @e[limit=1, dx=0, type=item_display, predicate=cable:same_type] run function cable:v1.0.0/cable/place/update
+execute rotated 0 90 positioned ^ ^ ^1 as @e[limit=1, dx=0, type=item_display, tag=cable.node, predicate=cable:same_type] run function cable:v1.0.0/cable/place/update
 scoreboard players set #predicate cable.direction 3
-execute rotated 0 0 positioned ^ ^ ^1 as @e[limit=1, dx=0, type=item_display, predicate=cable:same_type] run function cable:v1.0.0/cable/place/update
+execute rotated 0 0 positioned ^ ^ ^1 as @e[limit=1, dx=0, type=item_display, tag=cable.node, predicate=cable:same_type] run function cable:v1.0.0/cable/place/update
 scoreboard players set #predicate cable.direction -3
-execute rotated 180 0 positioned ^ ^ ^1 as @e[limit=1, dx=0, type=item_display, predicate=cable:same_type] run function cable:v1.0.0/cable/place/update
+execute rotated 180 0 positioned ^ ^ ^1 as @e[limit=1, dx=0, type=item_display, tag=cable.node, predicate=cable:same_type] run function cable:v1.0.0/cable/place/update
 
 execute if score #new cable.network.low matches 0 summon item_display run function cable:v1.0.0/cable/place/core
 
