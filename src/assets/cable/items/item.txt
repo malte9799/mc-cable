@@ -1,18 +1,19 @@
 Flotas: [
-    {
-        0: no Cable
-        1: Core + Cable
-        2: Core + Cable + Connection
+    0: {
+        >=1: Cable
+        >=2: Cable + Connection
     }
 ]
 Flags: [
-    no Core
-    Outline
-    Input
-    Output
+    0: no Core
+    1: Outline
+    2: Input  #todo replace Floats[1]
+    3: Output #todo replace
+    4: Redstone IO
 ]
 Colors: [
-    Cable Tint
-    Input Color
-    Output Color
+    0: Cable Tint
+    1: Input Color
+    2: Output Color
+    3: Redstone IOs
 ]

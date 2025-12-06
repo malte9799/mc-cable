@@ -2,25 +2,62 @@ id: "cable"
 name: "Cables"
 description: ""
 author: "9799ms"
-version: "1.0.0"
+version: "1.0"
 minecraft: "1.21.10"
-
-meta:
-  lsp:
-    excluded_plugins:
-      - smithed_libraries.plugins.versioning
 
 output: "build"
 data_pack:
   zipped: false
-  load: ["./src"]
-  pack_format: 81
+  load: ["./src", "./libs/**"]
 resource_pack:
   zipped: false
-  load: ["./src"]
-  pack_format: 64
+  load: ["./src", "./libs/**"]
+  pack_format: 69
 
+
+# Libs
 require:
-  - plugin.done_message
+  - sample_ui.resources
+  
+  - plugin.allow_function_without_name
+  - bolt
 
-extend: ["common.yaml"]
+pipeline:
+  - sample_ui.generate
+
+  - mecha
+  - smithed_libraries.plugins.versioning
+  - plugin.remove_empty_files
+  - beet.contrib.function_header
+  - plugin.minify_functions
+
+meta:
+  function_header:
+    match:
+      - cable:*
+  mecha:
+    formatting: preserve
+    multiline: true
+    commands:
+      # - "@mecha/resources/1_21_10.json"
+      - "commands.json"
+  
+  smithed:
+    versioning:
+      schema: ['major', 'minor']
+      scheduled_paths: impl/tick
+      lantern_load:
+        step: load
+        tag_path: load
+        function_path: impl/load
+
+      refactor:
+        match: "{{ project_id }}:*"
+        find: "{{ project_id }}:impl/"
+        replace: "{{ project_id }}:v{{ version }}/"
+
+      api:
+        match: "{{ project_id }}:v{{ version }}"
+        implementation_prefix: "{{ project_id }}:v{{ version }}/"
+        version_check_path: "v{{ version }}/calls"
+        tag_path: "calls"

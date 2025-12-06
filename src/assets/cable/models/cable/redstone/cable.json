@@ -1,7 +1,25 @@
 {
-  "parent": "cable:base/cable",
-  "textures": {
-    "0": "cable:block/redstone_cable",
-    "particle": "cable:block/redstone_cable"
-  }
+	"format_version": "1.21.6",
+	"credit": "Made with Blockbench",
+	"textures": {
+		"1": "cable:block/cable/redstone_conduits",
+		"particle": "cable:block/cable/redstone_core"
+	},
+	"elements": [
+		{
+			"from": [7, 7, 0],
+			"to": [9, 9, 6.5],
+			"faces": {
+				"east": {"uv": [4, 13, 0, 0], "rotation": 90, "texture": "#1", "tintindex": 0},
+				"west": {"uv": [4, 13, 0, 0], "rotation": 270, "texture": "#1", "tintindex": 0},
+				"up": {"uv": [4, 13, 0, 0], "texture": "#1", "tintindex": 0},
+				"down": {"uv": [4, 13, 0, 0], "rotation": 180, "texture": "#1", "tintindex": 0}
+			}
+		}
+	],
+	"display": {
+		"gui": {
+			"rotation": [30, 45, 0]
+		}
+	}
 }

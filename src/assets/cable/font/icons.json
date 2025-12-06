@@ -8,27 +8,19 @@
       "chars": ["I"]
     },
     {
-      "type": "space",
-      "advances": {
-        " ": 4,
-        "\uc000": -12,
-        "\uc001": -166
-      }
-    },
+        "type": "space",
+        "advances": {
+          " ": 4,
+          "\uc000": -12,
+          "\uc001": -166
+        }
+      },
     {
       "type": "bitmap",
-      "file": "cable:gui/table.png",
+      "file": "cable:gui/redstone_io.png",
       "ascent": 14,
-      "height": 176,
+      "height": 176.0,
       "chars": ["\uc002"]
-    },
-
-    {
-      "type": "bitmap",
-      "file": "minecraft:gui/container/crafting_table.png",
-      "ascent": 14,
-      "height": 259,
-      "chars": ["\uc003"]
     }
   ]
 }

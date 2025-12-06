@@ -2,7 +2,7 @@
   "parent": "wireframe:item/wireframe_white",
   "display": {
     "fixed": {
-      "scale": [0.25, 0.25, 0.25]
+      "scale": [0.1875, 0.1875, 0.1875]
     }
   }
 }

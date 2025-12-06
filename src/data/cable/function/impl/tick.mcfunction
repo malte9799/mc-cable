@@ -5,5 +5,5 @@ execute as @e[type=item_display,tag=cable.core] run function ./tick_2:
     data modify entity @s CustomName set string entity @s data.net_low
 
 
-execute as @a at @s as @e[type=item_display,tag=cable.core,distance=..5] run data modify entity @s CustomNameVisible set value 1b
-execute as @a at @s as @e[type=item_display,tag=cable.core,distance=5..] run data modify entity @s CustomNameVisible set value 0b
+execute as @a[predicate=cable:debug_goggles] at @s as @e[type=item_display,tag=cable.core,distance=..5] run data modify entity @s CustomNameVisible set value 1b
+execute as @a[predicate=cable:debug_goggles] at @s as @e[type=item_display,tag=cable.core,distance=5..] run data modify entity @s CustomNameVisible set value 0b
