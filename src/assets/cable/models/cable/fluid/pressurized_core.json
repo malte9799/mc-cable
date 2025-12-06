@@ -1,6 +1,6 @@
 {
 	"parent": "cable:base/core",
 	"textures": {
-		"1": "cable:block/cable/redstone_core"
+		"1": "cable:block/cable/pressurized_fluid_core"
 	}
 }

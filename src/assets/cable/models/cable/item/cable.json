@@ -1,0 +1,25 @@
+{
+	"format_version": "1.21.6",
+	"credit": "Made with Blockbench",
+	"textures": {
+		"1": "cable:block/cable/item_cables",
+		"particle": "cable:block/cable/item_core"
+	},
+	"elements": [
+		{
+			"from": [7, 7, 0],
+			"to": [9, 9, 6.5],
+			"faces": {
+				"east": {"uv": [16, 13, 0, 0], "rotation": 90, "texture": "#1", "tintindex": 0},
+				"west": {"uv": [16, 13, 0, 0], "rotation": 270, "texture": "#1", "tintindex": 0},
+				"up": {"uv": [16, 13, 0, 0], "texture": "#1", "tintindex": 0},
+				"down": {"uv": [16, 13, 0, 0], "rotation": 180, "texture": "#1", "tintindex": 0}
+			}
+		}
+	],
+	"display": {
+		"gui": {
+			"rotation": [30, 45, 0]
+		}
+	}
+}

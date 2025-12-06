@@ -17,14 +17,10 @@ resource_pack:
 
 # Libs
 require:
-  - sample_ui.resources
-  
   - plugin.allow_function_without_name
   - bolt
 
 pipeline:
-  - sample_ui.generate
-
   - mecha
   - smithed_libraries.plugins.versioning
   - plugin.remove_empty_files

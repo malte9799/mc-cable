@@ -1,0 +1,25 @@
+{
+	"format_version": "1.21.6",
+	"credit": "Made with Blockbench",
+	"textures": {
+		"1": "cable:block/cable/fluid_cables",
+		"particle": "cable:block/cable/pressurized_fluid_core"
+	},
+	"elements": [
+		{
+			"from": [7, 7, 0],
+			"to": [9, 9, 6.5],
+			"faces": {
+				"east": {"uv": [8, 13, 4, 0], "rotation": 90, "texture": "#1", "tintindex": 0},
+				"west": {"uv": [8, 13, 4, 0], "rotation": 270, "texture": "#1", "tintindex": 0},
+				"up": {"uv": [8, 13, 4, 0], "texture": "#1", "tintindex": 0},
+				"down": {"uv": [8, 13, 4, 0], "rotation": 180, "texture": "#1", "tintindex": 0}
+			}
+		}
+	],
+	"display": {
+		"gui": {
+			"rotation": [30, 45, 0]
+		}
+	}
+}
