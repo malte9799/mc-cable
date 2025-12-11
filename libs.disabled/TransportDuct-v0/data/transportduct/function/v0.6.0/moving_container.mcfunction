@@ -1,0 +1,2 @@
+summon chest_minecart ~ ~ ~ {Passengers: [{id: "minecraft:marker", Tags: ["example.chest_minecart_container.base", "itemio.container", "itemio.container.hopper", "itemio.container.nbt_items", "itemio.container.nbt_items.on_vehicle", "itemio.container.hopper_protection_8"]}], Tags: ["example.chest_minecart_container", "example.chest_minecart_container.summoned"]}
+execute as @e[tag=example.chest_minecart_container.summoned] run function transportduct:v0.6.0/moving_container/on_summon

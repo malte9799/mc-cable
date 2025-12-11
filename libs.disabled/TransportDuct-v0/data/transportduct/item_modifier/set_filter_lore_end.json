@@ -1,0 +1,1 @@
+[{"function":"minecraft:set_lore","entity":"this","lore":[{"translate":"transportduct.name","color":"blue","italic":false}],"mode":"insert"}]

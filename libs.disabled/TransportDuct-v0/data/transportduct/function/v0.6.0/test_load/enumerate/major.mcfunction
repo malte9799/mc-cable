@@ -1,0 +1,2 @@
+execute if score #transportduct.major load.status matches ..0 unless score #transportduct.major load.status matches 0 run function transportduct:v0.6.0/test_load/enumerate/set_version
+execute unless score #transportduct.set load.status matches 1 if score #transportduct.major load.status matches ..0 if score #transportduct.major load.status matches 0 run function transportduct:v0.6.0/test_load/enumerate/minor

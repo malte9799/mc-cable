@@ -10,11 +10,12 @@
         },
         "items": [
           {
-            "items": "poisonous_potato",
+            "items": "warped_fungus_on_a_stick",
             "predicates": {
               "minecraft:custom_data": {
-                "cable": {
-                  "id": "cable:wrench"
+                "ctc": {
+                  "id": "cable:wrench",
+                  "from": "9799ms"
                 }
               }
             }
@@ -24,6 +25,6 @@
     }
   },
   "rewards": {
-    "function": "cable:impl/item/wrench/switch"
+    "function": "cable:impl/event/switched_wrench"
   }
 }

@@ -1,0 +1,32 @@
+{
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:warped_fungus_on_a_stick",
+          "functions": [
+            {
+              "function": "minecraft:set_components",
+              "components": {
+                "minecraft:custom_data": {
+                  "ctc": {
+                    "id": "cable:wrench",
+                    "from": "9799ms",
+                    "traits": {
+                      "item": 1
+                    }
+                  }
+                },
+                "minecraft:item_name": "Wrench",
+                "minecraft:item_model": "cable:wrench",
+                "minecraft:lore": []
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

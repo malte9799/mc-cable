@@ -1,0 +1,2 @@
+execute if score #transportduct.minor load.status matches ..6 unless score #transportduct.minor load.status matches 6 run function transportduct:v0.6.0/test_load/enumerate/set_version
+execute unless score #transportduct.set load.status matches 1 if score #transportduct.minor load.status matches ..6 if score #transportduct.minor load.status matches 6 run function transportduct:v0.6.0/test_load/enumerate/patch

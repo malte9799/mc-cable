@@ -9,18 +9,18 @@ output: "build"
 data_pack:
   zipped: false
   load: ["./src", "./libs/**"]
+  pack_format: 88
 resource_pack:
   zipped: false
   load: ["./src", "./libs/**"]
   pack_format: 69
 
-
-# Libs
 require:
   - plugin.allow_function_without_name
   - bolt
 
 pipeline:
+  # - plugin.comment
   - mecha
   - smithed_libraries.plugins.versioning
   - plugin.remove_empty_files
@@ -28,15 +28,14 @@ pipeline:
   - plugin.minify_functions
 
 meta:
-  function_header:
-    match:
-      - cable:*
+  # function_header:
+  #   match:
+  #     - cable:*
   mecha:
-    formatting: preserve
+    version: "1.21.10"
+    # formatting: preserve
     multiline: true
-    commands:
-      # - "@mecha/resources/1_21_10.json"
-      - "commands.json"
+    commands: "https://raw.githubusercontent.com/misode/mcmeta/1.21.10-summary/commands/data.json"
   
   smithed:
     versioning:

@@ -1,0 +1,1 @@
+execute if score #transportduct.major load.status matches 0 if score #transportduct.minor load.status matches 6 if score #transportduct.patch load.status matches 0 run function transportduct:v0.6.0/servo/craft/advanced_remove

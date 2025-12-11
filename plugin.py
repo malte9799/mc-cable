@@ -1,3 +1,4 @@
+import re
 from beet import Context, Function
 from pathlib import PurePath
 
@@ -25,6 +26,14 @@ def minify_functions(ctx: Context):
         text = function.text
         while "\n\n\n" in text:
             text = text.replace("\n\n\n", "\n\n")
+        function.text = text.strip("\n")
+
+def comment(ctx: Context):
+    for _, function in ctx[Function]:
+        text = function.text
+        
+        text = re.sub(r'^(\s*)#', r'\1raw #', text, flags=re.MULTILINE)
+
         function.text = text.strip("\n")
 
 from datetime import datetime

@@ -1,0 +1,1 @@
+{"parent":"minecraft:item/handheld","textures":{"layer0":"minecraft:item/glow_item_frame"},"overrides":[{"predicate":{"custom_model_data":1430117},"model":"transportduct:block/servo/insert_item"},{"predicate":{"custom_model_data":1430119},"model":"transportduct:block/servo/extract_item"}]}

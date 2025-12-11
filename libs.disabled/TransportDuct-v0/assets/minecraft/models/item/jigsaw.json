@@ -1,0 +1,1 @@
+{"parent":"minecraft:block/jigsaw","overrides":[{"predicate":{"custom_model_data":1430121},"model":"transportduct:item/id_filter"}]}

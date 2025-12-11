@@ -1,63 +1,95 @@
-# @context align xyz
-# @input
-#   storage cable:data input (entry of cable:data registry)
-#       index: int
-#       components: {}
+function ./m.place:
+    raw # @public
+    raw # Place a cable
+    raw # @context positioned {position to place}
+    raw # @args $(type) as string
+    data remove storage cable:data input
+    $data modify storage cable:data input set from storage cable:data registry[{type:$(type)}]
+    execute store result score #predicate cable.type run data get storage cable:data input.type_id
+    function ./place
 
-execute store result score #predicate cable.type run data get storage cable:data input.index
-execute as @e[limit=1,dx=0,type=item_display,tag=cable,predicate=cable:same_type] run return run function ./destroy
 
-execute unless block ~ ~ ~ #minecraft:replaceable run return fail
-execute store result score #count cable.math if entity @e[dx=0,type=item_display,tag=cable.core]
+raw # @public
+raw # Place a cable
+raw # @context positioned {position to place}
+raw # @input Cable Registry entry, storage, cable:data, input, {type:string,type_id:int,components:{item_model:string,...}}
+
+# Check and init data
+execute unless data storage cable:data input run return run function cable:impl/util/error/place_no_input
+execute store result score #predicate cable.type run data get storage cable:data input.type_id
+
+#! @debug remove if cable is already placed if this block
+execute align xyz as @n[dx=0,type=item_display,tag=cable.core,predicate=cable:same_type] at @s run return run function ./destroy
+
+# Check if cable can be placed here
+execute align xyz if entity @e[dx=0,type=item_display,tag=cable.core,predicate=cable:same_type] run return fail
+execute unless block ~ ~ ~ #cable:replaceable run return fail
+execute align xyz store result score #count cable.math if entity @e[dx=0,type=item_display,tag=cable.core]
 execute if score #count cable.math matches 8.. run return fail
-# execute if predicate {'condition':'minecraft:location_check','predicate':{'block':{'state':{'waterlogged':'true'}}}} run setblock ~ ~ ~ water destroy
-# execute unless block ~ ~ ~ water run setblock ~ ~ ~ minecraft:moving_piston destroy
 setblock ~ ~ ~ minecraft:moving_piston destroy
+playsound block.stone.place block @a ~ ~ ~
 
 scoreboard players set #new cable.network.low 0
 scoreboard players set #new cable.network.high 0
 
+# Check all 6 directions for cables
 scoreboard players set #predicate cable.direction 1 # east
-execute rotated -90 0 positioned ^ ^ ^1 as @e[limit=1,dx=0,type=item_display,tag=cable.node,predicate=cable:same_type] run function ./place/update
+execute align xyz positioned ~1 ~ ~ as @e[limit=1,dx=0,type=item_display,tag=cable.core,predicate=cable:same_type] rotated -90 0 positioned ~.5 ~.5 ~.5 run function ./place/wire
 scoreboard players set #predicate cable.direction -1 # west
-execute rotated 90 0 positioned ^ ^ ^1 as @e[limit=1,dx=0,type=item_display,tag=cable.node,predicate=cable:same_type] run function ./place/update
+execute align xyz positioned ~-1 ~ ~ as @e[limit=1,dx=0,type=item_display,tag=cable.core,predicate=cable:same_type] rotated 90 0 positioned ~.5 ~.5 ~.5 run function ./place/wire
 scoreboard players set #predicate cable.direction 2 # up
-execute rotated 0 -90 positioned ^ ^ ^1 as @e[limit=1,dx=0,type=item_display,tag=cable.node,predicate=cable:same_type] run function ./place/update
+execute align xyz positioned ~ ~1 ~ as @e[limit=1,dx=0,type=item_display,tag=cable.core,predicate=cable:same_type] rotated 0 -90 positioned ~.5 ~.5 ~.5 run function ./place/wire
 scoreboard players set #predicate cable.direction -2 # down
-execute rotated 0 90 positioned ^ ^ ^1 as @e[limit=1,dx=0,type=item_display,tag=cable.node,predicate=cable:same_type] run function ./place/update
+execute align xyz positioned ~ ~-1 ~ as @e[limit=1,dx=0,type=item_display,tag=cable.core,predicate=cable:same_type] rotated 0 90 positioned ~.5 ~.5 ~.5 run function ./place/wire
 scoreboard players set #predicate cable.direction 3 # south
-execute rotated 0 0 positioned ^ ^ ^1 as @e[limit=1,dx=0,type=item_display,tag=cable.node,predicate=cable:same_type] run function ./place/update
+execute align xyz positioned ~ ~ ~1 as @e[limit=1,dx=0,type=item_display,tag=cable.core,predicate=cable:same_type] rotated 0 0 positioned ~.5 ~.5 ~.5 run function ./place/wire
 scoreboard players set #predicate cable.direction -3 # north
-execute rotated 180 0 positioned ^ ^ ^1 as @e[limit=1,dx=0,type=item_display,tag=cable.node,predicate=cable:same_type] run function ./place/update
+execute align xyz positioned ~ ~ ~-1 as @e[limit=1,dx=0,type=item_display,tag=cable.core,predicate=cable:same_type] rotated 180 0 positioned ~.5 ~.5 ~.5 run function ./place/wire
 
-function ./place/update:
-    execute if score #new cable.network.low matches 1.. run function ./network/regen
-    execute if score #new cable.network.low matches 0 run function ./network/copy
+# New network id if no neigbour Cable is found
+execute if score #new cable.network.low matches 0 run function ./network/new_id
 
-    execute positioned ^ ^ ^-1 summon item_display run function ./place/cable
-    scoreboard players operation #predicate cable.direction *= #-1 cable.math
-    execute as @e[limit=1,dx=0,type=item_display,tag=cable.core,tag=!cable.cable,predicate=cable:same_type] facing ^ ^ ^-1 run return run function ./place/cable
-    execute facing ^ ^ ^-1 summon item_display run function ./place/cable
+# Check all 6 directions for #cable:events/can_connect function (IO)
+scoreboard players set #predicate cable.direction 1 # east
+execute align xyz rotated -90 0 positioned ^ ^ ^1 if function #cable:events/can_connect positioned ^ ^ ^-1 summon item_display run function ./place/io
+scoreboard players set #predicate cable.direction -1 # west
+execute align xyz rotated 90 0 positioned ^ ^ ^1 if function #cable:events/can_connect positioned ^ ^ ^-1 summon item_display run function ./place/io
+scoreboard players set #predicate cable.direction 2 # up
+execute align xyz rotated 0 -90 positioned ^ ^ ^1 if function #cable:events/can_connect positioned ^ ^ ^-1 summon item_display run function ./place/io
+scoreboard players set #predicate cable.direction -2 # down
+execute align xyz rotated 0 90 positioned ^ ^ ^1 if function #cable:events/can_connect positioned ^ ^ ^-1 summon item_display run function ./place/io
+scoreboard players set #predicate cable.direction 3 # south
+execute align xyz rotated 0 0 positioned ^ ^ ^1 if function #cable:events/can_connect positioned ^ ^ ^-1 summon item_display run function ./place/io
+scoreboard players set #predicate cable.direction -3 # north
+execute align xyz rotated 180 0 positioned ^ ^ ^1 if function #cable:events/can_connect positioned ^ ^ ^-1 summon item_display run function ./place/io
 
-    function ./place/cable:
-        tp @s ~.5 ~.5 ~.5 ~ ~
-        function ./network/set
-        data merge entity @s {Tags:['cable','cable.node','cable.network','cable.cable'],item_display:'fixed',item:{id:'coal'}}
-        data modify entity @s item.components set from storage cable:data input.components
-        data modify entity @s item.components."minecraft:custom_model_data".floats set value [1f]
-        scoreboard players operation @s cable.type = #predicate cable.type
-        scoreboard players operation @s cable.direction = #predicate cable.direction
-        execute unless entity @e[limit=1,type=item_display,tag=cable.core,dx=0,predicate=cable:same_type] run tag @s add cable.core
-        data modify entity @s[tag=!cable.core] item.components.'minecraft:custom_model_data'.flags set value [1b]
+# If nothing has been placed yet, place a core
+execute align xyz unless entity @n[dx=0,type=item_display,tag=cable.core,predicate=cable:same_type] summon item_display run function ./place/core
 
-execute if score #new cable.network.low matches 0 summon item_display run function ./place/core:
-    tp @s ~.5 ~.5 ~.5 ~ ~
-    execute unless score @s cable.network.low matches 1.. run function ./network/new_id
-    data merge entity @s {Tags:['cable','cable.node','cable.network','cable.core'],item_display:'fixed',item:{id:'coal'}}
-    data modify entity @s item.components set from storage cable:data input.components
-    data modify entity @s item.components."minecraft:custom_model_data".floats set value [0f]
-    scoreboard players operation @s cable.type = #predicate cable.type
-    scoreboard players set @s cable.direction 0
-
+# Offset for bundeled cables
+execute align xyz run function ./offset
+# cleanup
 data remove storage cable:data input
-function ./offset
+
+# Function Definitions
+function ./place/core:
+    function ./network/set_new
+    function ./node/core/summon
+
+function ./place/wire:
+    execute if score #new cable.network.low matches 1.. run function ./network/set_new_all
+    execute if score #new cable.network.low matches 0 run function ./network/copy_new
+
+    execute positioned ^ ^ ^-1 align xyz summon item_display run function ./place/wire_2
+    scoreboard players operation #predicate cable.direction *= #-1 cable.math
+    execute facing ^ ^ ^-1 align xyz as @e[limit=1,dx=0,type=item_display,tag=cable.core,tag=!cable.wire,predicate=cable:same_type] run return run function ./place/wire_2
+    execute facing ^ ^ ^-1 align xyz summon item_display run function ./place/wire_2
+
+    function ./place/wire_2:
+        function ./network/set_new
+        function ./node/wire/summon
+
+function ./place/io:
+    function ./network/set_new
+    function ./network/process_queue
+    function ./node/io/summon

@@ -1,9 +1,7 @@
-# @context align xyz
-
-execute as @e[dx=0,type=item_display,tag=cable.cable,predicate=cable:same_type] rotated as @s run function ./offset/cable:
+execute align xyz as @e[dx=0,type=item_display,tag=cable.wire,predicate=cable:same_type] rotated as @s run function ./offset/cable:
     scoreboard players operation #predicate cable.direction = @s cable.direction
     data modify storage cable:data temp.sort set value [{i:-1},{i:-1},{i:-1},{i:-1},{i:-1},{i:-1},{i:-1},{i:-1},{i:-1}]
-    execute as @e[dx=0,type=item_display,tag=cable.cable,tag=!cable.checked,predicate=cable:same_direction] run function ./offset/enumerate
+    execute as @e[dx=0,type=item_display,tag=cable.wire,tag=!cable.checked,predicate=cable:same_direction] run function ./offset/enumerate
     data remove storage cable:data temp.sort[{i:-1}]
     execute store result score #count cable.type run data get storage cable:data temp.sort
 
@@ -11,22 +9,22 @@ execute as @e[dx=0,type=item_display,tag=cable.cable,predicate=cable:same_type] 
     scoreboard players operation #predicate cable.direction *= #-1 cable.math
     execute positioned ^ ^ ^1 run function ./offset/cable_2
     function ./offset/cable_2:
-        execute if predicate cable:direction_ew rotated 90 0 as @e[dx=0,type=item_display,tag=cable.cable,tag=!cable.checked,predicate=cable:same_direction] run function ./offset/tp
-        execute if predicate cable:direction_ud rotated 0 90 as @e[dx=0,type=item_display,tag=cable.cable,tag=!cable.checked,predicate=cable:same_direction] run function ./offset/tp
-        execute if predicate cable:direction_sn rotated 0 0 as @e[dx=0,type=item_display,tag=cable.cable,tag=!cable.checked,predicate=cable:same_direction] run function ./offset/tp
+        execute if predicate cable:direction_ew rotated 90 0 as @e[dx=0,type=item_display,tag=cable.wire,tag=!cable.checked,predicate=cable:same_direction] run function ./offset/tp
+        execute if predicate cable:direction_ud rotated 0 90 as @e[dx=0,type=item_display,tag=cable.wire,tag=!cable.checked,predicate=cable:same_direction] run function ./offset/tp
+        execute if predicate cable:direction_sn rotated 0 0 as @e[dx=0,type=item_display,tag=cable.wire,tag=!cable.checked,predicate=cable:same_direction] run function ./offset/tp
     execute positioned ^ ^ ^1 run function ./offset/core
 
-execute run function ./offset/core:
+execute align xyz run function ./offset/core:
     data modify storage cable:data temp.sort set value [{i:-1},{i:-1},{i:-1},{i:-1},{i:-1},{i:-1},{i:-1},{i:-1},{i:-1}]
     execute as @e[type=item_display,dx=0,tag=cable.core,tag=!cable.checked] run function ./offset/enumerate
     data remove storage cable:data temp.sort[{i:-1}]
     execute store result score #count cable.type run data get storage cable:data temp.sort
-    execute if entity @e[limit=1,dx=0,type=item_display,tag=cable.cable,predicate=cable:direction_ew] rotated 90 0 run return run function ./offset/core_2
-    execute if entity @e[limit=1,dx=0,type=item_display,tag=cable.cable,predicate=cable:direction_sn] rotated 0 0 run return run function ./offset/core_2
-    execute if entity @e[limit=1,dx=0,type=item_display,tag=cable.cable,predicate=cable:direction_ud] rotated 0 90 run return run function ./offset/core_2
+    execute if entity @e[limit=1,dx=0,type=item_display,tag=cable.wire,predicate=cable:direction_ew] rotated 90 0 run return run function ./offset/core_2
+    execute if entity @e[limit=1,dx=0,type=item_display,tag=cable.wire,predicate=cable:direction_sn] rotated 0 0 run return run function ./offset/core_2
+    execute if entity @e[limit=1,dx=0,type=item_display,tag=cable.wire,predicate=cable:direction_ud] rotated 0 90 run return run function ./offset/core_2
     execute rotated 0 0 run function ./offset/core_2
     function ./offset/core_2:
-        execute as @e[dx=0,type=item_display,tag=cable.core,tag=!cable.cable] run function ./offset/tp
+        execute as @e[dx=0,type=item_display,tag=cable.core,tag=!cable.wire] run function ./offset/tp
 
 function ./offset/enumerate:
     execute store result storage cable:data temp.index int 1 run scoreboard players get @s cable.type
@@ -67,3 +65,6 @@ function ./offset/tp:
         execute if data storage cable:data temp.sort[6] if score @s cable.type = #index cable.type run tp @s ^-.2 ^-.2 ^
         execute store result score #index cable.type run data get storage cable:data temp.sort[7].i
         execute if data storage cable:data temp.sort[7] if score @s cable.type = #index cable.type run tp @s ^-.2 ^.2 ^
+    
+    function ./collision/offset
+    function ./interaction/offset
