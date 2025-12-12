@@ -1,7 +1,7 @@
 function ./m.place:
     raw # @public
     raw # Place a cable
-    raw # @context positioned {position to place}
+    raw # @context positioned ...
     raw # @args $(type) as string
     data remove storage cable:data input
     $data modify storage cable:data input set from storage cable:data registry[{type:$(type)}]

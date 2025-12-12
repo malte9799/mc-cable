@@ -1,3 +1,12 @@
+function ./m.destroy:
+    raw # @public
+    raw # @context positioned ...
+    raw # @args $(type) as string
+
+    scoreboard players set #predicate cable.type -1
+    execute store result score #predicate cable.type run data get storage cable:data registry[{type:"$(type)"}].type_id
+    execute if score #predicate cable.type matches -1 run return run function cable:impl/util/m.error {error:"Type '$(type)' not found"}
+
 function ./destroy_wire:
     raw # @public
     raw # @context as @e[tag=cable.wire] at @s
@@ -20,17 +29,18 @@ function ./destroy_wire:
 raw # @public
 raw # @conext as @e[tag=cable.node] at @s
 
-execute unless entity @s[tag=cable.node] run return fail
 playsound block.stone.break block @a ~ ~ ~
 
 scoreboard players operation #predicate cable.type = @s cable.type
 # execute align xyz as @e[dx=0,type=item_display,tag=cable.wire,predicate=cable:same_type] at @s run function ./destroy_wire
 
-execute align xyz run tag @e[dx=0,type=item_display,tag=cable.network,predicate=cable:same_type] add cable.checked
-# execute align xyz as @e[dx=0,type=item_display,tag=cable.wire,predicate=cable:same_type] rotated as @s positioned ^ ^ ^1 run tag @e[dx=0,type=item_display,tag=cable.wire,predicate=cable:same_type] add cable.checked
+execute align xyz run tag @e[dx=0,type=item_display,tag=cable.wire,predicate=cable:same_type] add cable.checked
+execute align xyz as @e[dx=0,type=item_display,tag=cable.wire,predicate=cable:same_type] at @s positioned ^ ^ ^1 align xyz run tag @e[dx=0,type=item_display,tag=cable.wire,predicate=cable:same_type] add cable.checked
+function ./offset
 tag @e[type=item_display,tag=cable.checked] remove cable.checked
 
-execute align xyz as @e[dx=0,type=item_display,tag=cable.wire,predicate=cable:same_type] at @s run function ./destroy_2:
+execute unless entity @s[tag=cable.node] align xyz as @e[dx=0,type=item_display,tag=cable.wire] at @s run function ./destroy_2
+execute if entity @s[tag=cable.node] align xyz as @e[dx=0,type=item_display,tag=cable.wire,predicate=cable:same_type] at @s run function ./destroy_2:
     scoreboard players operation #predicate cable.type = @s cable.type
     # scoreboard players operation #predicate cable.direction = @s cable.direction
 

@@ -3,13 +3,14 @@ function ./node/core/summon:
     # @context as @e[tag=cable.node]
     # @context rotated {...} summon item_display
     # @input? storage cable:data input - Cable registry entry
-    execute at @s align xyz run tp @s ~.5 ~.5 ~.5 0 0
+    execute positioned as @s align xyz run tp @s ~.5 ~.5 ~.5 ~ ~
     execute as @s[tag=!cable.node] store result score #predicate cable.type run data get storage cable:data input.type_id
     data merge entity @s {Tags:['cable','cable.node','cable.network','cable.core'],item_display:'fixed',item:{id:'coal'}}
     execute unless data entity @s item.components run data modify entity @s item.components set from storage cable:data input.components
     data modify entity @s item.components."minecraft:custom_model_data".floats set value [0f]
     execute unless score @s cable.type matches 0.. run scoreboard players operation @s cable.type = #predicate cable.type
     scoreboard players set @s cable.direction 0
+    function ./offset
 
 function ./node/core/destroy:
     # @context as @e[type=item_display,tag=cable.wire]
@@ -17,6 +18,7 @@ function ./node/core/destroy:
     execute at @s as @e[distance=...1,type=item_display,tag=cable.collision.core,predicate=cable:same_type] run function cable:killme
     execute at @s as @e[distance=...1,type=interaction,tag=cable.interaction.core,predicate=cable:same_type] run function cable:killme
     kill @s
+    function ./offset
 
 function ./node/core/add:
     data modify entity @s item.components."minecraft:custom_model_data".flags set value [false]
@@ -37,6 +39,7 @@ function ./node/wire/summon:
     function cable:impl/util/get_direction
     function cable:impl/util/set_direction
     execute at @s align xyz unless entity @e[limit=1,dx=0,type=item_display,tag=cable.core,predicate=cable:same_type] run function ./node/core/add
+    # function ./offset
 
 function ./node/wire/destroy:
     # @context as @e[type=item_display,tag=cable.wire]
@@ -50,7 +53,7 @@ function ./node/wire/destroy:
         execute positioned ^ ^ ^.4 as @e[distance=...1,type=interaction,tag=cable.interaction.wire,predicate=cable:same_type] run function cable:killme
 
         execute if entity @s[tag=!cable.core] run return run kill @s
-        execute unless entity @e[limit=1,dx=0,type=item_display,tag=cable.wire,tag=!cable.core,predicate=cable:same_type] run return run function ./node/core/summon
+        execute align xyz unless entity @e[limit=1,dx=0,type=item_display,tag=cable.wire,tag=!cable.core,predicate=cable:same_type] run return run function ./node/core/summon
         execute align xyz as @e[limit=1,dx=0,type=item_display,tag=cable.wire,tag=!cable.core,predicate=cable:same_type] run function ./node/core/add
         kill @s
 
