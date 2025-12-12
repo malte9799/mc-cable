@@ -2,8 +2,8 @@
 	"format_version": "1.21.6",
 	"credit": "Made with Blockbench",
 	"textures": {
-		"2": "cable:block/conduit_connector",
-		"particle": "cable:block/conduit_io"
+		"2": "cable:block/cable/conduit_connector",
+		"particle": "cable:block/cable/conduit_connector"
 	},
 	"elements": [
 		{

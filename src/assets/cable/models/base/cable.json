@@ -2,7 +2,7 @@
 	"format_version": "1.21.6",
 	"credit": "Made with Blockbench",
 	"textures": {
-		"1": "cable:block/cable/redstone_cables",
+		"texture": "cable:block/cable/redstone_cables",
 		"particle": "cable:block/cable/redstone_core"
 	},
 	"elements": [
@@ -10,10 +10,10 @@
 			"from": [7, 7, 0],
 			"to": [9, 9, 6.5],
 			"faces": {
-				"east": {"uv": [4, 13, 0, 0], "rotation": 90, "texture": "#1", "tintindex": 0},
-				"west": {"uv": [4, 13, 0, 0], "rotation": 270, "texture": "#1", "tintindex": 0},
-				"up": {"uv": [4, 13, 0, 0], "texture": "#1", "tintindex": 0},
-				"down": {"uv": [4, 13, 0, 0], "rotation": 180, "texture": "#1", "tintindex": 0}
+				"east": {"uv": [4, 13, 0, 0], "rotation": 90, "texture": "#texture", "tintindex": 0},
+				"west": {"uv": [4, 13, 0, 0], "rotation": 270, "texture": "#texture", "tintindex": 0},
+				"up": {"uv": [4, 13, 0, 0], "texture": "#texture", "tintindex": 0},
+				"down": {"uv": [4, 13, 0, 0], "rotation": 180, "texture": "#texture", "tintindex": 0}
 			}
 		}
 	],

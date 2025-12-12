@@ -10,22 +10,22 @@
         "east": {
           "uv": [0, 16, 16, 0],
           "rotation": 270,
-          "texture": "#1",
+          "texture": "#texture",
           "tintindex": 0
         },
         "west": {
           "uv": [0, 16, 16, 0],
           "rotation": 90,
-          "texture": "#1",
+          "texture": "#texture",
           "tintindex": 0
         },
         "up": {
           "uv": [16, 16, 0, 0],
           "rotation": 180,
-          "texture": "#1",
+          "texture": "#texture",
           "tintindex": 0
         },
-        "down": { "uv": [0, 16, 16, 0], "texture": "#1", "tintindex": 0 }
+        "down": { "uv": [0, 16, 16, 0], "texture": "#texture", "tintindex": 0 }
       }
     }
   ]

@@ -1,6 +1,6 @@
 {
 	"parent": "cable:base/core",
 	"textures": {
-		"1": "cable:block/cable/fluid_core"
+		"texture": "cable:block/fluid_core"
 	}
 }

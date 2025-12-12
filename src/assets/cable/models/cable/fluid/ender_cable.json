@@ -2,18 +2,18 @@
 	"format_version": "1.21.6",
 	"credit": "Made with Blockbench",
 	"textures": {
-		"1": "cable:block/cable/fluid_cables",
-		"particle": "cable:block/cable/ender_fluid_core"
+		"texture": "cable:block/fluid_cables",
+		"particle": "cable:block/ender_fluid_core"
 	},
 	"elements": [
 		{
 			"from": [7, 7, 0],
 			"to": [9, 9, 6.5],
 			"faces": {
-				"east": {"uv": [12, 13, 8, 0], "rotation": 90, "texture": "#1", "tintindex": 0},
-				"west": {"uv": [12, 13, 8, 0], "rotation": 270, "texture": "#1", "tintindex": 0},
-				"up": {"uv": [12, 13, 8, 0], "texture": "#1", "tintindex": 0},
-				"down": {"uv": [12, 13, 8, 0], "rotation": 180, "texture": "#1", "tintindex": 0}
+				"east": {"uv": [12, 13, 8, 0], "rotation": 90, "texture": "#texture", "tintindex": 0},
+				"west": {"uv": [12, 13, 8, 0], "rotation": 270, "texture": "#texture", "tintindex": 0},
+				"up": {"uv": [12, 13, 8, 0], "texture": "#texture", "tintindex": 0},
+				"down": {"uv": [12, 13, 8, 0], "rotation": 180, "texture": "#texture", "tintindex": 0}
 			}
 		}
 	],

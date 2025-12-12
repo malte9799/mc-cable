@@ -2,8 +2,8 @@
 	"format_version": "1.21.6",
 	"credit": "Made with Blockbench",
 	"textures": {
-		"2": "cable:block/cable/redstone_active_core",
-		"particle": "cable:block/cable/redstone_active_core"
+		"2": "cable:block/redstone_active_core",
+		"particle": "cable:block/redstone_active_core"
 	},
 	"elements": [
 		{

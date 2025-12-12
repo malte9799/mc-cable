@@ -2,21 +2,21 @@
 	"format_version": "1.21.11",
 	"credit": "Made with Blockbench",
 	"textures": {
-		"1": "cable:block/conduit_connector",
-		"particle": "cable:block/conduit_connector"
+		"texture": "cable:block/cable/conduit_connector",
+		"particle": "cable:block/cable/conduit_connector"
 	},
 	"elements": [
 		{
-			"from": [2.5, 2.5, 7.99],
+			"from": [2.5, 2.5, 7.98],
 			"to": [13.5, 13.5, 8.5],
 			"shade": false,
 			"faces": {
-				"north": {"uv": [0, 0, 5.5, 5.5], "texture": "#1"},
-				"east": {"uv": [5, 0, 5.5, 5.5], "texture": "#1"},
-				"south": {"uv": [0, 0, 5.5, 5.5], "texture": "#1"},
-				"west": {"uv": [0, 0, 0.5, 5.5], "texture": "#1"},
-				"up": {"uv": [0, 0, 5.5, 0.5], "texture": "#1"},
-				"down": {"uv": [0, 5, 5.5, 5.5], "texture": "#1"}
+				"north": {"uv": [0, 0, 5.5, 5.5], "texture": "#texture"},
+				"east": {"uv": [5, 0, 5.5, 5.5], "texture": "#texture"},
+				"south": {"uv": [0, 0, 5.5, 5.5], "texture": "#texture"},
+				"west": {"uv": [0, 0, 0.5, 5.5], "texture": "#texture"},
+				"up": {"uv": [0, 0, 5.5, 0.5], "texture": "#texture"},
+				"down": {"uv": [0, 5, 5.5, 5.5], "texture": "#texture"}
 			}
 		},
 		{
@@ -24,13 +24,12 @@
 			"to": [11.5, 11.5, 9],
 			"shade": false,
 			"faces": {
-				"east": {"uv": [8.5, 0, 9, 3.5], "texture": "#1"},
-				"south": {"uv": [5.5, 0, 9, 3.5], "texture": "#1"},
-				"west": {"uv": [5.5, 0, 6, 3.5], "texture": "#1"},
-				"up": {"uv": [5.5, 0, 9, 0.5], "texture": "#1"},
-				"down": {"uv": [5.5, 3, 9, 3.5], "texture": "#1"}
+				"east": {"uv": [8.5, 0, 9, 3.5], "texture": "#texture"},
+				"south": {"uv": [5.5, 0, 9, 3.5], "texture": "#texture"},
+				"west": {"uv": [5.5, 0, 6, 3.5], "texture": "#texture"},
+				"up": {"uv": [5.5, 0, 9, 0.5], "texture": "#texture"},
+				"down": {"uv": [5.5, 3, 9, 3.5], "texture": "#texture"}
 			}
 		}
-	],
-	"display": {}
+	]
 }
