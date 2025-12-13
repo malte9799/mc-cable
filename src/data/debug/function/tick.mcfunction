@@ -1,6 +1,6 @@
 schedule function debug:tick 1t replace
 
-execute if items entity @p weapon.* *[minecraft:custom_data~{ctc:{id:"cable:wrench"}}] run function debug:network
+# execute if items entity @p weapon.* *[minecraft:custom_data~{ctc:{id:"cable:wrench"}}] run function debug:network
 #V3
 execute as @a at @s run kill @e[type=text_display,tag=debug,distance=5..]
 tag @e[type=text_display,tag=debug,tag=killme] add killme2

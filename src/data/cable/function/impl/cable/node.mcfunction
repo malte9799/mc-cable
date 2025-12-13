@@ -1,15 +1,24 @@
+#! Base
+function ./node/base/summon:
+    execute positioned as @s align xyz run tp @s ~.5 ~.5 ~.5 ~ ~
+    data merge entity @s {Tags:['cable','cable.node','cable.network'],item_display:'fixed',item:{id:'coal'}}
+    execute unless data entity @s item.components run data modify entity @s item.components set from storage cable:data input.components
+    execute unless score @s cable.type matches 0.. run scoreboard players operation @s cable.type = #predicate cable.type
+    scoreboard players operation @s cable.direction = #predicate cable.direction
+    function cable:impl/util/get_direction
+    function cable:impl/util/set_direction
+
+
 #! Core
 function ./node/core/summon:
     # @context as @e[tag=cable.node]
-    # @context rotated {...} summon item_display
+    # @context summon item_display
     # @input? storage cable:data input - Cable registry entry
-    execute positioned as @s align xyz run tp @s ~.5 ~.5 ~.5 ~ ~
-    execute as @s[tag=!cable.node] store result score #predicate cable.type run data get storage cable:data input.type_id
-    data merge entity @s {Tags:['cable','cable.node','cable.network','cable.core'],item_display:'fixed',item:{id:'coal'}}
-    execute unless data entity @s item.components run data modify entity @s item.components set from storage cable:data input.components
-    data modify entity @s item.components."minecraft:custom_model_data".floats set value [0f]
-    execute unless score @s cable.type matches 0.. run scoreboard players operation @s cable.type = #predicate cable.type
     scoreboard players set @s cable.direction 0
+    execute if entity @s[tag=!cable.node] store result score #predicate cable.type run data get storage cable:data input.type_id
+    function ./node/base/summon
+    tag @s add cable.core
+    data modify entity @s item.components."minecraft:custom_model_data" set value {flags:[0b]}
     function ./offset
 
 function ./node/core/destroy:
@@ -21,7 +30,7 @@ function ./node/core/destroy:
     function ./offset
 
 function ./node/core/add:
-    data modify entity @s item.components."minecraft:custom_model_data".flags set value [false]
+    data modify entity @s item.components."minecraft:custom_model_data".flags[0] set value 0b
     tag @s add cable.core
 
 #! Wire
@@ -29,16 +38,11 @@ function ./node/wire/summon:
     # @context as @e[tag=cable.node]
     # @context rotated {...} summon item_display
     # @input? storage cable:data input - Cable registry entry
-    execute positioned as @s align xyz run tp @s ~.5 ~.5 ~.5 ~ ~
-    execute as @s[tag=!cable.node] store result score #predicate cable.type run data get storage cable:data input.type_id
-    data merge entity @s {Tags:['cable','cable.node','cable.network','cable.wire'],item_display:'fixed',item:{id:'coal'}}
-    execute unless data entity @s item.components run data modify entity @s item.components set from storage cable:data input.components
-    data modify entity @s item.components."minecraft:custom_model_data" set value {floats:[1f],flags:[true]}
-    execute unless score @s cable.type matches 0.. run scoreboard players operation @s cable.type = #predicate cable.type
-    scoreboard players operation @s cable.direction = #predicate cable.direction
-    function cable:impl/util/get_direction
-    function cable:impl/util/set_direction
-    execute at @s align xyz unless entity @e[limit=1,dx=0,type=item_display,tag=cable.core,predicate=cable:same_type] run function ./node/core/add
+    execute if entity @s[tag=!cable.node] store result score #predicate cable.type run data get storage cable:data input.type_id
+    function ./node/base/summon
+    tag @s add cable.wire
+    data modify entity @s item.components."minecraft:custom_model_data" set value {floats:[1f],flags:[1b]}
+    execute align xyz unless entity @e[limit=1,dx=0,type=item_display,tag=cable.core,predicate=cable:same_type] run function ./node/core/add
     # function ./offset
 
 function ./node/wire/destroy:
@@ -66,7 +70,7 @@ function ./node/io/summon:
     tag @s add cable.io
     tag @s add cable.io.extract
     function ./node/io/update_model
-    execute positioned as @s align xyz positioned ~.5 ~.5 ~.5 positioned ^ ^ ^.499 unless entity @n[distance=...5,type=item_display,tag=cable.io.connector] summon item_display run function ./node/connector/summon
+    execute positioned as @s align xyz positioned ~.5 ~.5 ~.5 positioned ^ ^ ^.499 unless entity @n[distance=...5,type=item_display,tag=cable.connector] summon item_display run function ./node/connector/summon
 
 function ./node/io/destroy:
     # @conext as @e[tag=cable.io,tag=cable.wire]
@@ -83,7 +87,7 @@ function ./node/io/update_model:
 #! Io Connector
 function ./node/connector/summon:
     tp @s ~ ~ ~ ~ ~
-    data merge entity @s {Tags:['cable','cable.node','cable.io.connector'],item_display:'fixed',item:{id:'coal',components:{custom_data:{},item_model:'cable:base/connector'}}}
+    data merge entity @s {Tags:['cable','cable.node','cable.connector'],item_display:'fixed',item:{id:'coal',components:{custom_data:{},item_model:'cable:base/connector'}}}
     execute store result score #predicate cable.type run data get storage cable:data input.type_id
     execute unless score @s cable.type matches 0.. run scoreboard players operation @s cable.type = #predicate cable.type
     scoreboard players operation @s cable.direction = #predicate cable.direction
@@ -91,6 +95,6 @@ function ./node/connector/summon:
     function cable:impl/util/set_direction
 
 function ./node/connector/destroy:
-    # @comtext as @e[tag=cable.io.connector]
-    kill @s[tag=cable.io.connector]
+    # @comtext as @e[tag=cable.connector]
+    kill @s[tag=cable.connector]
 

@@ -1,32 +1,28 @@
 {
-  "textures": {
-    "1": "cable:block/cable/tintable"
-  },
-  "elements": [
-    {
-      "from": [6.4999, 6.4999, 6],
-      "to": [9.5001, 9.5001, 7],
-      "faces": {
-        "east": {
-          "uv": [0, 16, 16, 0],
-          "rotation": 270,
-          "texture": "#texture",
-          "tintindex": 0
-        },
-        "west": {
-          "uv": [0, 16, 16, 0],
-          "rotation": 90,
-          "texture": "#texture",
-          "tintindex": 0
-        },
-        "up": {
-          "uv": [16, 16, 0, 0],
-          "rotation": 180,
-          "texture": "#texture",
-          "tintindex": 0
-        },
-        "down": { "uv": [0, 16, 16, 0], "texture": "#texture", "tintindex": 0 }
-      }
-    }
-  ]
+	"format_version": "1.21.6",
+	"credit": "Made with Blockbench",
+	"textures": {
+		"1": "cable:block/cable/tintable",
+		"particle": "cable:block/cable/tintable"
+	},
+	"elements": [
+		{
+			"from": [6.75, 6.75, 4],
+			"to": [9.25, 9.25, 5],
+			"rotation": {"angle": 0, "axis": "y", "origin": [-0.25, -0.25, 0]},
+			"faces": {
+				"north": {"uv": [0, 0, 16, 16], "texture": "#1"},
+				"east": {"uv": [0, 0, 16, 16], "texture": "#1"},
+				"south": {"uv": [0, 0, 16, 16], "texture": "#1"},
+				"west": {"uv": [0, 0, 16, 16], "texture": "#1"},
+				"up": {"uv": [0, 0, 16, 16], "texture": "#1"},
+				"down": {"uv": [0, 0, 16, 16], "texture": "#1"}
+			}
+		}
+	],
+	"display": {
+		"gui": {
+			"rotation": [30, 45, 0]
+		}
+	}
 }
