@@ -1,0 +1,58 @@
+id: "cable"
+name: "Cables"
+description: ""
+author: "9799ms"
+version: "0.1"
+minecraft: "1.21.10"
+
+output: "build"
+data_pack:
+  zipped: false
+  load: ["./src"]
+  pack_format: 88
+resource_pack:
+  zipped: false
+  load: ["./src"]
+  pack_format: 69
+
+require:
+  - plugin.allow_function_without_name
+  - bolt
+
+pipeline:
+  # - plugin.comment
+  - mecha
+  - smithed_libraries.plugins.versioning
+  - plugin.remove_empty_files
+  - beet.contrib.function_header
+  - plugin.minify_functions
+
+meta:
+  # function_header:
+  #   match:
+  #     - cable:*
+  mecha:
+    version: "1.21.10"
+    # formatting: preserve
+    multiline: true
+    commands: "https://raw.githubusercontent.com/misode/mcmeta/1.21.10-summary/commands/data.json"
+  
+  smithed:
+    versioning:
+      schema: ['major', 'minor']
+      scheduled_paths: impl/tick
+      lantern_load:
+        step: load
+        tag_path: load
+        function_path: impl/load
+
+      refactor:
+        match: "{{ project_id }}:*"
+        find: "{{ project_id }}:impl/"
+        replace: "{{ project_id }}:v{{ version }}/"
+
+      api:
+        match: "{{ project_id }}:v{{ version }}"
+        implementation_prefix: "{{ project_id }}:v{{ version }}/"
+        version_check_path: "v{{ version }}/calls"
+        tag_path: "calls"

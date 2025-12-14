@@ -2,8 +2,8 @@
 	"format_version": "1.21.6",
 	"credit": "Made with Blockbench",
 	"textures": {
-		"particle": "block/debug",
-		"texture": "block/debug"
+		"particle": "minecraft:block/debug",
+		"texture": "minecraft:block/debug"
 	},
 	"elements": [
 		{

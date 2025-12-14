@@ -2,12 +2,12 @@
 	"format_version": "1.21.11",
 	"credit": "Made with Blockbench",
 	"textures": {
-		"texture": "cable:block/cable/conduit_connector",
-		"particle": "cable:block/cable/conduit_connector"
+		"particle": "cable:block/base/conduit_connector",
+		"texture": "cable:block/base/conduit_connector"
 	},
 	"elements": [
 		{
-			"from": [2.5, 2.5, 7.98],
+			"from": [2.5, 2.5, 8],
 			"to": [13.5, 13.5, 8.5],
 			"shade": false,
 			"faces": {
@@ -31,5 +31,11 @@
 				"down": {"uv": [5.5, 3, 9, 3.5], "texture": "#texture"}
 			}
 		}
-	]
+	],
+	"display": {
+		"fixed": {
+			"rotation": [180, 0, 0],
+			"scale": [2, 2, 2]
+		}
+	}
 }

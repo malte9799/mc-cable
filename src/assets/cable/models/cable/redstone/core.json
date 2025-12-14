@@ -1,6 +1,0 @@
-{
-	"parent": "cable:base/core",
-	"textures": {
-		"texture": "cable:block/redstone_core"
-	}
-}

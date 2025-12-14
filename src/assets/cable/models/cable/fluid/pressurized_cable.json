@@ -1,6 +1,0 @@
-{
-	"parent": "cable:base/cable",
-	"textures": {
-		"texture": "cable:block/pressurized_fluid_cable"
-	}
-}

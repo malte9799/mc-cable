@@ -10,7 +10,9 @@ def modified_suffixes(self):
     These include the leading periods. For example: ['.tar', '.gz']
     """    
     name = self.name
-    if name==".mcfunction":
+    if 'TEMPLATE' in name:
+        return []
+    elif name==".mcfunction":
         return [name]
     else:
         if name.endswith('.'):

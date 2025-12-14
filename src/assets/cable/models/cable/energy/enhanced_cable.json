@@ -1,6 +1,0 @@
-{
-	"parent": "cable:base/cable",
-	"textures": {
-		"texture": "cable:block/enhanced_energy_cable"
-	}
-}
