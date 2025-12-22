@@ -1,123 +1,52 @@
-id: "cable"
-name: "Cables"
-description: ""
-author: "9799ms"
+name: cable
 version: "0.1"
-minecraft: "1.21.10"
+author: "9799ms"
 
 output: "build"
+# 1.21.5 - 1.21.11
+# RP: 55 - 75
+# DP: 71 - 94.1
+
+resource_pack:
+  load: [src]
+  pack_format: 75
+  min_format: 55
+  max_format: 75
+  supported_formats: [55, 75]
+  overlays:
+    - directory: "1.21.9"
+      min_format: 69
+      max_format: 75
 
 data_pack:
-  pack_format: 88
-  zipped: false
-resource_pack:
-  pack_format: 69
-  zipped: false
+  load: [src]
+  pack_format: 94
+  min_format: 71
+  max_format: 94.1
+  supported_formats: 
+    min_inclusive: 71
+    max_inclusive: 94.1
 
+
+require:
+  - bolt
 pipeline:
-  - version: "0.1"
-    name: "Cable Libs"
-    data_pack:
-      load: ["./libs/**"]
-    resource_pack:
-      load: ["./libs/**"]
+  - mecha
+  - smithed_libraries.plugins.versioning
 
-  - version: "0.1"
-    minecraft: "1.21.10"
-    name: "Cable"
-    data_pack:
-      load: ["./src"]
-    resource_pack:
-      load: ["./src"]
-
-    require:
-      - plugin.allow_function_without_name
-      - bolt
-
-    pipeline:
-      - mecha
-      - smithed_libraries.plugins.versioning
-      - plugin.remove_empty_files
-      - beet.contrib.function_header
-      - plugin.minify_functions
-
-    meta:
-      # function_header:
-      #   match:
-      #     - cable:*
-      mecha:
-        version: "1.21.10"
-        # formatting: preserve
-        multiline: true
-        commands: "https://raw.githubusercontent.com/misode/mcmeta/1.21.10-summary/commands/data.json"
-      
-      smithed:
-        versioning:
-          schema: ['major', 'minor']
-          scheduled_paths: impl/tick
-          lantern_load:
-            step: load
-            tag_path: load
-            function_path: impl/load
-
-          refactor:
-            match: "{{ project_id }}:*"
-            find: "{{ project_id }}:impl/"
-            replace: "{{ project_id }}:v{{ version }}/"
-
-          api:
-            match: "{{ project_id }}:v{{ version }}"
-            implementation_prefix: "{{ project_id }}:v{{ version }}/"
-            version_check_path: "v{{ version }}/calls"
-            tag_path: "calls"
-
-# data_pack:
-#   zipped: false
-#   load: ["./src"]
-#   pack_format: 88
-# resource_pack:
-#   zipped: false
-#   load: ["./src"]
-#   pack_format: 69
-
-# require:
-#   - plugin.allow_function_without_name
-#   - bolt
-
-# pipeline:
-#   # - plugin.comment
-#   - mecha
-#   - smithed_libraries.plugins.versioning
-#   - plugin.remove_empty_files
-#   - beet.contrib.function_header
-#   - plugin.minify_functions
-
-# meta:
-#   # function_header:
-#   #   match:
-#   #     - cable:*
-#   mecha:
-#     version: "1.21.10"
-#     # formatting: preserve
-#     multiline: true
-#     commands: "https://raw.githubusercontent.com/misode/mcmeta/1.21.10-summary/commands/data.json"
-  
-#   smithed:
-#     versioning:
-#       schema: ['major', 'minor']
-#       scheduled_paths: impl/tick
-#       lantern_load:
-#         step: load
-#         tag_path: load
-#         function_path: impl/load
-
-#       refactor:
-#         match: "{{ project_id }}:*"
-#         find: "{{ project_id }}:impl/"
-#         replace: "{{ project_id }}:v{{ version }}/"
-
-#       api:
-#         match: "{{ project_id }}:v{{ version }}"
-#         implementation_prefix: "{{ project_id }}:v{{ version }}/"
-#         version_check_path: "v{{ version }}/calls"
-#         tag_path: "calls"
+meta:
+  mecha:
+    formatting: preserve
+    commands: "https://raw.githubusercontent.com/misode/mcmeta/1.21.10-summary/commands/data.json"
+  smithed:
+    versioning:
+      schema: ['major', 'minor']
+      refactor:
+        match: "{{ project_id }}:*"
+        find: "{{ project_id }}:impl/"
+        replace: "{{ project_id }}:v{{ version }}/"
+      api:
+        match: "{{ project_id }}:v{{ version }}"
+        implementation_prefix: "{{ project_id }}:v{{ version }}/"
+        version_check_path: "v{{ version }}/calls"
+        tag_path: "calls"

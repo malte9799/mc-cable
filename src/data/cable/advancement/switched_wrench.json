@@ -13,9 +13,8 @@
             "items": "warped_fungus_on_a_stick",
             "predicates": {
               "minecraft:custom_data": {
-                "ctc": {
-                  "id": "cable:wrench",
-                  "from": "9799ms"
+                "cable": {
+                  "id": "wrench"
                 }
               }
             }

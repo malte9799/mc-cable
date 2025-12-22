@@ -1,0 +1,26 @@
+{
+    "__comment":"All container of minecraft",
+    "values": [
+        {"id":"#itemio:container","required":false},
+
+        "barrel",
+        "dispenser",
+        "dropper",
+        "brewing_stand",
+        "chest",
+        "trapped_chest",
+        {"id":"#copper_chests","required":false},
+        "chiseled_bookshelf",
+        "composter",
+        {"id":"crafter","required":false},
+        "decorated_pot",
+        "furnace",
+        "blast_furnace",
+        "smoker",
+        "hopper",
+        {"id": "#minecraft:wooden_shelves", "required": false},
+        "jukebox",
+        "lectern",
+        "#shulker_boxes"
+    ]
+}

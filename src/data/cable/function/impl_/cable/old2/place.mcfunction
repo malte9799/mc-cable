@@ -2,7 +2,7 @@
 ## @input Cable registry entry, storage, cable:data, input
 
 #! @debug remove if cable is already placed if this block
-execute store result score #predicate cable.type run data get storage cable:data input.type_id
+execute store result score #predicate cable.type run data get storage cable:data input.id
 execute as @e[limit=1,dx=0,type=item_display,tag=cable.core,predicate=cable:same_type] run return run function ./node/core/destroy
 
 execute unless block ~ ~ ~ #cable:replaceable run return fail
@@ -11,7 +11,7 @@ execute if score #count cable.math matches 8.. run return fail
 setblock ~ ~ ~ minecraft:moving_piston destroy
 playsound block.stone.place block @a ~ ~ ~
 
-execute store result score #predicate cable.type run data get storage cable:data input.type_id
+execute store result score #predicate cable.type run data get storage cable:data input.id
 scoreboard players set #new cable.network.low 0
 scoreboard players set #new cable.network.high 0
 

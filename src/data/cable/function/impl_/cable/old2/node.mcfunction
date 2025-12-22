@@ -7,7 +7,7 @@ function ./node/core/summon:
     data merge entity @s {Tags:['cable','cable.node','cable.network','cable.core'],item_display:'fixed',item:{id:'coal'}}
     execute unless data entity @s item.components run data modify entity @s item.components set from storage cable:data input.components
     data modify entity @s item.components."minecraft:custom_model_data".floats set value [0f]
-    execute store result score #predicate cable.type run data get storage cable:data input.type_id
+    execute store result score #predicate cable.type run data get storage cable:data input.id
     execute unless score @s cable.type matches 0.. run scoreboard players operation @s cable.type = #predicate cable.type
     scoreboard players set @s cable.direction 0
 
@@ -24,7 +24,7 @@ function ./node/wire/summon:
     data merge entity @s {Tags:['cable','cable.node','cable.network','cable.wire'],item_display:'fixed',item:{id:'coal'}}
     execute unless data entity @s item.components run data modify entity @s item.components set from storage cable:data input.components
     data modify entity @s item.components."minecraft:custom_model_data" set value {floats:[1f],flags:[true]}
-    execute store result score #predicate cable.type run data get storage cable:data input.type_id
+    execute store result score #predicate cable.type run data get storage cable:data input.id
     execute unless score @s cable.type matches 0.. run scoreboard players operation @s cable.type = #predicate cable.type
     scoreboard players operation @s cable.direction = #predicate cable.direction
     function ./util/get_direction

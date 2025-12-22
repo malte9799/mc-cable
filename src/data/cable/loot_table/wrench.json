@@ -11,9 +11,12 @@
               "function": "minecraft:set_components",
               "components": {
                 "minecraft:custom_data": {
+                  "cable": {
+                    "id": "wrench"
+                  },
                   "ctc": {
-                    "id": "cable:wrench",
-                    "from": "9799ms",
+                    "id": "wrench",
+                    "from": "9799ms:cable",
                     "traits": {
                       "item": 1
                     }

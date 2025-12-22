@@ -7,8 +7,8 @@
 	},
 	"elements": [
 		{
-			"from": [2.5, 2.5, 8],
-			"to": [13.5, 13.5, 8.5],
+			"from": [2, 2, 8],
+			"to": [14, 14, 8.5],
 			"shade": false,
 			"faces": {
 				"north": {"uv": [0, 0, 5.5, 5.5], "texture": "#texture"},
@@ -20,8 +20,8 @@
 			}
 		},
 		{
-			"from": [4.5, 4.5, 8.5],
-			"to": [11.5, 11.5, 9],
+			"from": [4, 4, 8.5],
+			"to": [12, 12, 9],
 			"shade": false,
 			"faces": {
 				"east": {"uv": [8.5, 0, 9, 3.5], "texture": "#texture"},
@@ -34,7 +34,7 @@
 	],
 	"display": {
 		"fixed": {
-			"rotation": [180, 0, 0],
+			"rotation": [-180, 0, 0],
 			"scale": [2, 2, 2]
 		}
 	}

@@ -5,18 +5,18 @@ function ./m.place:
     raw # @args $(type) as string
     data remove storage cable:data input
     $data modify storage cable:data input set from storage cable:data registry[{type:$(type)}]
-    execute store result score #predicate cable.type run data get storage cable:data input.type_id
+    execute store result score #predicate cable.type run data get storage cable:data input.id
     function ./place
 
 
 raw # @public
 raw # Place a cable
 raw # @context positioned {position to place}
-raw # @input Cable Registry entry, storage, cable:data, input, {type:string,type_id:int,components:{item_model:string,...}}
+raw # @input Cable Registry entry, storage, cable:data, input, {type:string,id:int,components:{item_model:string,...}}
 
 # Check and init data
 execute unless data storage cable:data input run return run function cable:impl/util/error/place_no_input
-execute store result score #predicate cable.type run data get storage cable:data input.type_id
+execute store result score #predicate cable.type run data get storage cable:data input.id
 
 #! @debug remove if cable is already placed if this block
 execute align xyz as @n[dx=0,type=item_display,tag=cable.core,predicate=cable:same_type] at @s run return run function ./destroy

@@ -1,7 +1,7 @@
 function ./render/core/init:
     # @input Cable Registry Entry, storage, cable:data, input
     # @input Cable Type Index, score, #predicate cable.type
-    execute store result score #predicate cable.type run data get storage cable:data input.type_id
+    execute store result score #predicate cable.type run data get storage cable:data input.id
     tp @s ~.5 ~.5 ~.5 ~ ~
     execute unless score @s cable.network.low matches 1.. run function ./network/new_id
     data merge entity @s {Tags:['cable','cable.node','cable.network','cable.core'],item_display:'fixed',item:{id:'coal'}}
@@ -30,7 +30,7 @@ function ./render/wire/init:
     data modify entity @s item.components set from storage cable:data input.components
     data modify entity @s item.components."minecraft:custom_model_data" set value {floats:[1f],flags:[true]}
     # scoreboard players operation @s cable.type = #predicate cable.type
-    execute store result score @s cable.type run data get storage cable:data input.type_id
+    execute store result score @s cable.type run data get storage cable:data input.id
     # function ./render/wire/set_direction
     scoreboard players operation @s cable.direction = #predicate cable.direction
     execute unless entity @e[limit=1,type=item_display,tag=cable.core,dx=0,predicate=cable:same_type] run function ./render/core/add

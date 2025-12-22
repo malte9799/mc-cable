@@ -26,6 +26,56 @@ execute align xyz run function ./offset/core:
     function ./offset/core_2:
         execute as @e[dx=0,type=item_display,tag=cable.core,tag=!cable.wire] run function ./offset/tp
 
+# scoreboard players set x.min cable.math 5
+# scoreboard players set y.min cable.math 5
+# scoreboard players set z.min cable.math 5
+# scoreboard players set x.max cable.math 5
+# scoreboard players set y.max cable.math 5
+# scoreboard players set z.max cable.math 5
+# execute align xyz as @e[dx=0,type=item_display,tag=cable.wire] run function ./test_bundle:
+#     execute store result score #x.pos cable.math run data get entity @s Pos[0] 10
+#     execute store result score #y.pos cable.math run data get entity @s Pos[1] 10
+#     execute store result score #z.pos cable.math run data get entity @s Pos[2] 10
+#     scoreboard players operation #x.pos cable.math %= #10 cable.math
+#     scoreboard players operation #y.pos cable.math %= #10 cable.math
+#     scoreboard players operation #z.pos cable.math %= #10 cable.math
+
+#     scoreboard players operation x.min cable.math < #x.pos cable.math
+#     scoreboard players operation y.min cable.math < #y.pos cable.math
+#     scoreboard players operation z.min cable.math < #z.pos cable.math
+#     scoreboard players operation x.max cable.math > #x.pos cable.math
+#     scoreboard players operation y.max cable.math > #y.pos cable.math
+#     scoreboard players operation z.max cable.math > #z.pos cable.math
+
+
+# scoreboard players operation x.max cable.math -= x.min cable.math
+# scoreboard players operation y.max cable.math -= y.min cable.math
+# scoreboard players operation z.max cable.math -= z.min cable.math
+
+# execute align xyz summon block_display run function ./test_bundle_tp:
+#     data merge entity @s {Tags:['cable','cable.bundle'],block_state:{Name:"stone"},transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[0f,0f,0f],scale:[.2f,.2f,.2f]}}
+#     execute if score x.min cable.math matches 3 at @s run tp @s ~.2 ~ ~
+#     execute if score x.min cable.math matches 5 at @s run tp @s ~.4 ~ ~
+#     execute if score x.min cable.math matches 7 at @s run tp @s ~.6 ~ ~
+
+#     execute if score y.min cable.math matches 3 at @s run tp @s ~ ~.2 ~
+#     execute if score y.min cable.math matches 5 at @s run tp @s ~ ~.4 ~
+#     execute if score y.min cable.math matches 7 at @s run tp @s ~ ~.6 ~
+
+#     execute if score z.min cable.math matches 3 at @s run tp @s ~ ~ ~.2
+#     execute if score z.min cable.math matches 5 at @s run tp @s ~ ~ ~.4
+#     execute if score z.min cable.math matches 7 at @s run tp @s ~ ~ ~.6
+
+#     execute if score x.max cable.math matches 1 run data modify entity @s transformation.scale[0] set value .4
+#     execute if score x.max cable.math matches 4 run data modify entity @s transformation.scale[0] set value .6
+
+#     execute if score y.max cable.math matches 1 run data modify entity @s transformation.scale[1] set value .4
+#     execute if score y.max cable.math matches 4 run data modify entity @s transformation.scale[1] set value .6
+
+#     execute if score z.max cable.math matches 1 run data modify entity @s transformation.scale[2] set value .4
+#     execute if score z.max cable.math matches 4 run data modify entity @s transformation.scale[2] set value .6
+
+#> Function Definitions
 function ./offset/enumerate:
     execute store result storage cable:data temp.index int 1 run scoreboard players get @s cable.type
     execute run function ./offset/enumerate_2 with storage cable:data temp:

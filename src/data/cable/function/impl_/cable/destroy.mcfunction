@@ -1,10 +1,10 @@
 # @context align xyz
 # @input
 #   storage cable:data input (entry of cable:data registry)
-#       type_id: int
+#       id: int
 #       ?components: {}
 
-execute store result score #predicate cable.type run data get storage cable:data input.type_id
+execute store result score #predicate cable.type run data get storage cable:data input.id
 tag @e[dx=0,type=item_display,tag=cable.network,predicate=cable:same_type] add cable.checked
 execute as @e[dx=0,type=item_display,tag=cable.wire,predicate=cable:same_type] run function ./destroy/network:
     scoreboard players operation #predicate cable.direction = @s cable.direction

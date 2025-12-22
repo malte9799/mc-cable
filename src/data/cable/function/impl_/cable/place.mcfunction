@@ -1,8 +1,8 @@
 ## @context align xyz
-## @input Cable registry Entry, storage, cable:data, input, {type: string, type_id: int, components: {custom_model_data:string, ...}}
+## @input Cable registry Entry, storage, cable:data, input, {type: string, id: int, components: {custom_model_data:string, ...}}
 
-# store cable type_id for predicate checks
-execute store result score #predicate cable.type run data get storage cable:data input.type_id
+# store cable id for predicate checks
+execute store result score #predicate cable.type run data get storage cable:data input.id
 #! @debug remove if cable is already placed if this block
 execute as @e[limit=1,dx=0,type=item_display,tag=cable,predicate=cable:same_type] run return run function ./destroy
 

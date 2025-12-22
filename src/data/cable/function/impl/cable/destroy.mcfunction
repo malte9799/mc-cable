@@ -1,18 +1,9 @@
-function ./m.destroy:
-    raw # @public
-    raw # @context positioned ...
-    raw # @args $(type) as string
-
-    scoreboard players set #predicate cable.type -1
-    execute store result score #predicate cable.type run data get storage cable:data registry[{type:"$(type)"}].type_id
-    execute if score #predicate cable.type matches -1 run return run function cable:impl/util/m.error {error:"Type '$(type)' not found"}
-
 function ./destroy_wire:
     raw # @public
-    raw # @context as @e[tag=cable.wire] at @s
+    raw # @context as @e[tag=cable.wire]
 
     execute unless entity @s[tag=cable.wire] run return fail
-    playsound block.stone.break block @a ~ ~ ~
+    execute at @s run playsound block.stone.break block @a ~ ~ ~
 
     scoreboard players operation #predicate cable.type = @s cable.type
     # scoreboard players operation #predicate cable.direction = @s cable.direction
@@ -21,7 +12,7 @@ function ./destroy_wire:
     function ./node/wire/destroy
 
     function ./network/new_id
-    execute align xyz as @e[dx=0,type=item_display,tag=cable.network,predicate=cable:same_type] run function ./network/set_new_walk
+    execute at @s align xyz as @e[dx=0,type=item_display,tag=cable.network,predicate=cable:same_type] run function ./network/set_new_walk
 
     tag @e[type=item_display,tag=cable.checked] remove cable.checked
 
