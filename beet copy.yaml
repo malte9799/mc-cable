@@ -12,6 +12,11 @@ meta:
   mecha:
     formatting: preserve
 
+  model_resolver:
+    preferred_minecraft_generated: java
+    special_rendering: true
+    use_cache: true
+
 require:
   - plugin.set_meta
   - bolt

@@ -1,11 +1,11 @@
 function debug:load
-#>if MC>=1.21.11
-# gamerule max_command_sequence_length 65536
-# gamerule max_command_forks 65536
-#>else
+@if MC>=1.21.11
+gamerule max_command_sequence_length 65536
+gamerule max_command_forks 65536
+@else
 gamerule maxCommandChainLength 65536
 gamerule maxCommandForkCount 65536
-#>endif
+@endif
 scoreboard objectives add cable.math dummy
 scoreboard players set #-1 cable.math -1
 scoreboard players set #2 cable.math 2
