@@ -15,7 +15,7 @@ execute unless data storage cable:data input run return run function cable:impl/
 execute store result score #predicate cable.type run data get storage cable:data input.id
 
 #! @debug remove if cable is already placed if this block
-execute align xyz as @e[limit=1,dx=0,tag=cable.core,type=item_display,predicate=cable:same_type] at @s run return run function ./destroy
+execute align xyz as @e[limit=1,dx=0,tag=cable.core,predicate=cable:same_type,type=item_display] at @s run return run function ./destroy
 raw #ignore
 
 # Check if cable can be placed here
