@@ -83,9 +83,15 @@ def beet_default(ctx: Context):
         for overlay in overlays:
             version = overlay.replace("..", "")
             overlay_gen = ctx.generate.overlays[overlay]
+            # del ctx.assets.overlays[overlay]
 
             min_format = min_v if overlay.startswith("..") else version
             max_format = max_v if overlay.endswith("..") else version
+
+            overlay_gen.assets.min_format = [PackFormatRegistry.get(min_format).resource_pack_version, PackFormatRegistry.get(min_format).resource_pack_version_minor]
+            overlay_gen.assets.max_format = [PackFormatRegistry.get(max_format).resource_pack_version, PackFormatRegistry.get(max_format).resource_pack_version_minor]
+            overlay_gen.assets.supported_formats = [PackFormatRegistry.get(min_format).resource_pack_version, PackFormatRegistry.get(max_format).resource_pack_version]
+            
             overlay_gen.data.min_format = [PackFormatRegistry.get(min_format).data_pack_version, PackFormatRegistry.get(min_format).data_pack_version_minor]
             overlay_gen.data.max_format = [PackFormatRegistry.get(max_format).data_pack_version, PackFormatRegistry.get(max_format).data_pack_version_minor]
             overlay_gen.data.supported_formats = [PackFormatRegistry.get(min_format).data_pack_version, PackFormatRegistry.get(max_format).data_pack_version]
@@ -133,6 +139,12 @@ def comment_for_version(text: str, my_version: str) -> str:
     return overlay_block_pattern.sub(replacer, text)
 
 
+def remove_empty_files(ctx: Context):
+    for path in ctx.data.functions.match("*"):
+        function = ctx.data.functions[path]
+        if not function.text.strip():
+            ctx.data.functions.pop(path)
+
 # @property
 # def modified_suffixes(self):
 #     """
@@ -176,9 +188,3 @@ def comment_for_version(text: str, my_version: str) -> str:
 #     time = datetime.now().strftime('%H:%M:%S')
 #     sys.stdout.write('\033[A')
 #     print(f'\033[94m\033[4m{time}')
-
-# def remove_empty_files(ctx: Context):
-#     for path in ctx.data.functions.match("*"):
-#         function = ctx.data.functions[path]
-#         if not function.text.strip():
-#             ctx.data.functions.pop(path)

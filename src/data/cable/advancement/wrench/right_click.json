@@ -1,0 +1,22 @@
+{
+  "criteria": {
+    "_": {
+      "trigger": "minecraft:using_item",
+      "conditions": {
+        "item": {
+          "items": "minecraft:white_bundle",
+          "predicates": {
+            "minecraft:custom_data": {
+              "cable": {
+                "id": "wrench"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "rewards": {
+    "function": "cable:impl/item/wrench/right_click"
+  }
+}

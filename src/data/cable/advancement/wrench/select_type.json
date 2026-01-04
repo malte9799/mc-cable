@@ -1,0 +1,35 @@
+{
+  "criteria": {
+    "_": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "player": {
+          "slots": {
+            "player.cursor": {
+              "predicates": {
+                "minecraft:custom_data": {
+                  "wrench_select_type": true
+                }
+              }
+            }
+          }
+        },
+        "items": [
+          {
+            "items": "white_bundle",
+            "predicates": {
+              "minecraft:custom_data": {
+                "cable": {
+                  "id": "wrench"
+                }
+              }
+            }
+          }
+        ]
+      }
+    }
+  },
+  "rewards": {
+    "function": "cable:impl/item/wrench/select_type"
+  }
+}

@@ -8,9 +8,13 @@ author: "9799ms"
 
 meta:
   min_version: "1.21.5"
-  max_version: "26.1"
+  max_version: "1.21.11"
   mecha:
-    formatting: preserve
+    # formatting: preserve
+    formatting: minify
+
+  lectern:
+    snapshot: "snapshot.md"
 
 require:
   - plugin.set_meta
@@ -25,6 +29,9 @@ pipeline:
   - plugin
   - mecha
   - smithed_libraries.plugins.versioning
+  - beet.contrib.function_header
+  - plugin.remove_empty_files
+  # - lectern
 
   - resource_pack:
       load: [src/include/**]

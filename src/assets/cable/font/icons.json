@@ -11,8 +11,9 @@
         "type": "space",
         "advances": {
           " ": 4,
-          "\uc000": -12,
-          "\uc001": -166
+          "\uf012": -12,
+          "\uf050": -50,
+          "\uf166": -166
         }
       },
     {
@@ -21,6 +22,13 @@
       "ascent": 14,
       "height": 176.0,
       "chars": ["\uc002"]
+    },
+    {
+      "type": "bitmap",
+      "file": "cable:font/wrench.png",
+      "ascent": -34,
+      "height": 36,
+      "chars": ["\uc003"]
     }
   ]
 }

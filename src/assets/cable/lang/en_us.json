@@ -1,3 +1,7 @@
 {
-    "block.cable.redstone.gui":"\uc000 \uc002\uc001%s"
+    "block.cable.redstone.gui":"\uf012 \uc002\uf166%s",
+
+
+    "item.cable.wrench":"Wrench",
+    "item.cable.wrench.gui": "\uf012 \uc003"
 }

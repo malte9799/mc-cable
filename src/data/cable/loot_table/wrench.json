@@ -22,7 +22,7 @@
                     }
                   }
                 },
-                "minecraft:item_name": "Wrench",
+                "minecraft:item_name": [{"translate":"item.cable.wrench"},{"text":"\uc001","font":"cable:icons"},{"text":"Select Cable to Debug"}],
                 "minecraft:item_model": "cable:wrench",
                 "minecraft:lore": []
               }

@@ -1,26 +1,36 @@
 {
     "__comment":"All container of minecraft",
     "values": [
-        {"id":"#itemio:container","required":false},
 
         "barrel",
+        "blast_furnace",
+        "brewing_stand",
+        "campfire",
+        "chest",
         "dispenser",
         "dropper",
-        "brewing_stand",
-        "chest",
+        "furnace",
+        "hopper",
+        "lectern",
+        "#shulker_boxes",
+        "smoker",
         "trapped_chest",
-        {"id":"#copper_chests","required":false},
+
+        
         "chiseled_bookshelf",
         "composter",
-        {"id":"crafter","required":false},
         "decorated_pot",
-        "furnace",
-        "blast_furnace",
-        "smoker",
-        "hopper",
-        {"id": "#minecraft:wooden_shelves", "required": false},
         "jukebox",
-        "lectern",
-        "#shulker_boxes"
+        
+        {"id":"#itemio:container","required":false},
+        
+        {"id": "#minecraft:wooden_shelves", "required": false},
+        {"id":"#copper_chests","required":false},
+        {"id":"crafter","required":false},
+
+        {"id":"#c:barrels","required":false},
+        {"id":"#c:chests/wooden","required":false},
+        {"id":"#c:chests/trapped","required":false},
+        {"id":"#c:player_workstations/furnaces","required":false}
     ]
 }
