@@ -1,14 +1,17 @@
 function ./m.place:
     raw # @public
-    raw # @context at <entity> OR positioned <x> <y> <z>: Position to place cable
+    raw # Place a cable
+    raw # @context positioned <where to place>
     raw # @args $(type):<string>
     data remove storage cable:data input
     $data modify storage cable:data input set from storage cable:registry cables[{type:$(type)}]
     function ./place
 
+
 raw # @public
-raw # @context at <entity> OR positioned <x> <y> <z>: Position to place cable
-raw # @input storage cable:data input, {type:<string>,id:<int>,components:{item_model:<string>,...}}
+raw # Place a cable
+raw # @context positioned <where to place>
+raw # @input Cable Registry entry, storage cable:data input, {type:<string>,id:<int>,components:{item_model:<string>,...}}
 
 # Check and init data
 execute unless data storage cable:data input run return run function cable:impl/util/error/place_no_input
@@ -16,7 +19,6 @@ execute store result score #predicate cable.type run data get storage cable:data
 
 #! @debug remove if cable is already placed if this block
 execute align xyz as @e[limit=1,dx=0,tag=cable.core,predicate=cable:same_type,type=item_display] at @s run return run function ./destroy
-raw #ignore
 
 # Check if cable can be placed here
 execute align xyz if entity @e[limit=1,dx=0,tag=cable.core,predicate=cable:same_type,type=item_display] run return fail
