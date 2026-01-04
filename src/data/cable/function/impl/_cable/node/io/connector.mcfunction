@@ -13,7 +13,7 @@ function ./connector/summon:
 
 function ./connector/destroy:
     # @comtext as @e[tag=cable.connector]
-    execute if entity @s[tag=cable.connector.selected] at @s run kill @e[distance=...4,type=chest_minecart,tag=cable.connector.gui]
+    execute if entity @s[tag=cable.connector.selected] at @s run kill @e[distance=...4,tag=cable.connector.gui,type=chest_minecart]
     kill @s[tag=cable.connector]
 
 function ./connector/tick:
@@ -22,9 +22,9 @@ function ./connector/tick:
     execute as @a[tag=cable.looking_at_connector] run function ./connector/tick_2:
         tag @s remove cable.looking_at_connector
         function #bs.view:as_aimed_entity {run:"function cable:impl/cable/node/io/connector/looking", with:{entities:"cable.connector",ignored_entities:"chest_minecart"}}
-    execute as @e[type=item_frame,tag=cable.connector,tag=cable.connector.selected,tag=!cable.connector.looked_at] run function ./connector/deselect
-    tag @e[type=item_frame,tag=cable.connector,tag=cable.connector.looked_at] remove cable.connector.looked_at
-    execute as @e[type=chest_minecart,tag=cable.connector.gui] at @s run function ./gui/tick
+    execute as @e[tag=cable.connector,tag=cable.connector.selected,tag=!cable.connector.looked_at,type=item_frame] run function ./connector/deselect
+    tag @e[tag=cable.connector,tag=cable.connector.looked_at,type=item_frame] remove cable.connector.looked_at
+    execute as @e[tag=cable.connector.gui,type=chest_minecart] at @s run function ./gui/tick
 
 function ./connector/looking:
     # @context at <players whos looking> as <connector>
@@ -40,5 +40,5 @@ function ./connector/deselect:
     tag @s remove cable.connector.selected
     data modify entity @s Item.components.minecraft:custom_model_data.flags set value [0b]
 
-    execute at @s align xyz run kill @n[dx=0,type=chest_minecart,tag=cable.connector.gui]
+    execute at @s align xyz run kill @n[dx=0,tag=cable.connector.gui,type=chest_minecart]
     execute as @e[type=item] if items entity @s contents coal[custom_data~{cable:{gui:true}}] run kill @s

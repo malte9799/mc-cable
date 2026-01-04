@@ -27,7 +27,7 @@ function ./gui/summon:
             }
         }]
     }
-    team join cable.no_collision @n[type=chest_minecart,tag=cable.connector.gui]
+    team join cable.no_collision @n[tag=cable.connector.gui,type=chest_minecart]
 
 function ./gui/tick:
     rotate @s 24 24
@@ -45,11 +45,11 @@ function ./gui/insert/click:
     data modify storage cable:data temp.Item set from entity @s Items[0]
     function ./gui/return_item
 
-    execute as @n[type=item_display,tag=cable.io,tag=cable.io.insert] run return run function ./gui/insert/disable:
+    execute as @n[tag=cable.io,tag=cable.io.insert,type=item_display] run return run function ./gui/insert/disable:
         tag @s remove cable.io.insert
         data modify entity @s[tag=cable.io.extract] item.components.minecraft:custom_model_data.floats[0] set value 3f
         data modify entity @s[tag=!cable.io.extract] item.components.minecraft:custom_model_data.floats[0] set value 2f
-    execute as @n[type=item_display,tag=cable.io] run function ./gui/insert/enable:
+    execute as @n[tag=cable.io,type=item_display] run function ./gui/insert/enable:
         tag @s add cable.io.insert
         data modify entity @s[tag=cable.io.extract] item.components.minecraft:custom_model_data.floats[0] set value 5f
         data modify entity @s[tag=!cable.io.extract] item.components.minecraft:custom_model_data.floats[0] set value 4f
@@ -59,18 +59,18 @@ function ./gui/extract/click:
     data modify storage cable:data temp.Item set from entity @s Items[4]
     function ./gui/return_item
 
-    execute as @n[type=item_display,tag=cable.io,tag=cable.io.extract] run return run function ./gui/extract/disable:
+    execute as @n[tag=cable.io,tag=cable.io.extract,type=item_display] run return run function ./gui/extract/disable:
         tag @s remove cable.io.extract
         data modify entity @s[tag=cable.io.insert] item.components.minecraft:custom_model_data.floats[0] set value 4f
         data modify entity @s[tag=!cable.io.insert] item.components.minecraft:custom_model_data.floats[0] set value 2f
-    execute as @n[type=item_display,tag=cable.io] run function ./gui/extract/enable:
+    execute as @n[tag=cable.io,type=item_display] run function ./gui/extract/enable:
         tag @s add cable.io.extract
         data modify entity @s[tag=cable.io.insert] item.components.minecraft:custom_model_data.floats[0] set value 5f
         data modify entity @s[tag=!cable.io.insert] item.components.minecraft:custom_model_data.floats[0] set value 3f
 
 function ./gui/return_item:
     execute if data storage cable:data temp.Item.Slot as @p[gamemode=!spectator] at @s run summon item ~ ~ ~ {Item: {id: "stone", count: 1}, Tags: ["cable.replace_item", "global.ignore"]}
-    data modify entity @e[type=item,tag=cable.replace_item,limit=1] Item set from storage cable:data temp.Item
+    data modify entity @e[tag=cable.replace_item,limit=1,type=item] Item set from storage cable:data temp.Item
     data remove storage cable:data temp.Item
-    tag @e[type=item, limit=1, tag=cable.replace_item] remove cable.replace_item
+    tag @e[limit=1,tag=cable.replace_item,type=item] remove cable.replace_item
     

@@ -2,7 +2,7 @@ function ./process/tick:
     scoreboard players add #predicate cable.network.process_queue 1
     scoreboard players operation #predicate cable.network.process_queue %= #process_queue cable.math
 
-    execute as @e[type=item_display,tag=cable.io.extract,predicate=cable:same_process_queue] at @s run function ./process/tick_2:
+    execute as @e[tag=cable.io.extract,predicate=cable:same_process_queue,type=item_display] at @s run function ./process/tick_2:
 
         scoreboard players operation #predicate cable.type = @s cable.type
         scoreboard players operation #predicate cable.network.low = @s cable.network.low
@@ -10,7 +10,7 @@ function ./process/tick:
 
         execute if entity @s[tag=!cable.io.round_robin] run function ./process/tick_3:
             execute if entity @s[tag=!cable.io.self_feed] 
-                as @n[distance=.1..,type=item_display,tag=cable.io.insert,predicate=cable:same_type,predicate=cable:same_network,predicate=cable:same_process_queue]
+                as @n[distance=.1..,tag=cable.io.insert,predicate=cable:same_type,predicate=cable:same_network,predicate=cable:same_process_queue,type=item_display]
                 at @s run function ./process/tick_4:
                     scoreboard players operation #predicate cable.direction = @s cable.direction
                     execute align xyz positioned ~.5 ~.5 ~.5 positioned ^ ^ ^1 summon marker run function ./process/summon_marker:
@@ -42,4 +42,4 @@ function ./process/tick:
 
         execute positioned ^ ^ ^1 run function #itemio:calls/transfer
 
-        kill @e[type=marker,tag=cable.io.transfer]
+        kill @e[tag=cable.io.transfer,type=marker]

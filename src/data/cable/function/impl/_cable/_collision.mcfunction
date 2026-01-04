@@ -4,7 +4,7 @@
 function ./collision/tick:
     # @context <root>
     # say hi
-    execute as @e[type=item_display,tag=cable.collision] at @s run return 1
+    execute as @e[tag=cable.collision,type=item_display] at @s run return 1
     
 
 

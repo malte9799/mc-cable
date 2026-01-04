@@ -12,8 +12,8 @@ function ./core/summon:
 
 function ./core/destroy:
     scoreboard players operation #predicate cable.type = @s cable.type
-    execute at @s as @e[distance=...1,type=item_display,tag=cable.collision.core,predicate=cable:same_type] run function cable:killme
-    execute at @s as @e[distance=...1,type=interaction,tag=cable.interaction.core,predicate=cable:same_type] run function cable:killme
+    execute at @s as @e[distance=...1,tag=cable.collision.core,predicate=cable:same_type,type=item_display] run function cable:killme
+    execute at @s as @e[distance=...1,tag=cable.interaction.core,predicate=cable:same_type,type=interaction] run function cable:killme
     kill @s
     function ./offset
 

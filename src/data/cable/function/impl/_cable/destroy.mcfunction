@@ -12,9 +12,9 @@ function ./destroy_wire:
     function ./node/wire/destroy
 
     function ./network/new_id
-    execute at @s align xyz as @e[dx=0,type=item_display,tag=cable.network,predicate=cable:same_type] run function ./network/set_new_walk
+    execute at @s align xyz as @e[dx=0,tag=cable.network,predicate=cable:same_type,type=item_display] run function ./network/set_new_walk
 
-    tag @e[type=item_display,tag=cable.checked] remove cable.checked
+    tag @e[tag=cable.checked,type=item_display] remove cable.checked
 
 
 raw # @public
@@ -25,13 +25,13 @@ playsound block.stone.break block @a ~ ~ ~
 scoreboard players operation #predicate cable.type = @s cable.type
 # execute align xyz as @e[dx=0,type=item_display,tag=cable.wire,predicate=cable:same_type] at @s run function ./destroy_wire
 
-execute align xyz run tag @e[dx=0,type=item_display,tag=cable.wire,predicate=cable:same_type] add cable.checked
-execute align xyz as @e[dx=0,type=item_display,tag=cable.wire,predicate=cable:same_type] at @s positioned ^ ^ ^1 align xyz run tag @e[dx=0,type=item_display,tag=cable.wire,predicate=cable:same_type] add cable.checked
+execute align xyz run tag @e[dx=0,tag=cable.wire,predicate=cable:same_type,type=item_display] add cable.checked
+execute align xyz as @e[dx=0,tag=cable.wire,predicate=cable:same_type,type=item_display] at @s positioned ^ ^ ^1 align xyz run tag @e[dx=0,tag=cable.wire,predicate=cable:same_type,type=item_display] add cable.checked
 function ./offset
-tag @e[type=item_display,tag=cable.checked] remove cable.checked
+tag @e[tag=cable.checked,type=item_display] remove cable.checked
 
-execute unless entity @s[tag=cable.node] align xyz as @e[dx=0,type=item_display,tag=cable.wire] at @s run function ./destroy_2
-execute if entity @s[tag=cable.node] align xyz as @e[dx=0,type=item_display,tag=cable.wire,predicate=cable:same_type] at @s run function ./destroy_2:
+execute unless entity @s[tag=cable.node] align xyz as @e[dx=0,tag=cable.wire,type=item_display] at @s run function ./destroy_2
+execute if entity @s[tag=cable.node] align xyz as @e[dx=0,tag=cable.wire,predicate=cable:same_type,type=item_display] at @s run function ./destroy_2:
     scoreboard players operation #predicate cable.type = @s cable.type
     # scoreboard players operation #predicate cable.direction = @s cable.direction
 
@@ -39,11 +39,11 @@ execute if entity @s[tag=cable.node] align xyz as @e[dx=0,type=item_display,tag=
     function ./node/wire/destroy
 
     tag @s add cable.me
-    execute align xyz if entity @e[dx=0,type=item_display,tag=cable.wire,tag=!cable.io,tag=!cable.me,predicate=cable:same_type] run function ./network/new_id
-    execute align xyz as @e[dx=0,type=item_display,tag=cable.network,predicate=cable:same_type] run function ./network/set_new_walk
+    execute align xyz if entity @e[dx=0,tag=cable.wire,tag=!cable.io,tag=!cable.me,predicate=cable:same_type,type=item_display] run function ./network/new_id
+    execute align xyz as @e[dx=0,tag=cable.network,predicate=cable:same_type,type=item_display] run function ./network/set_new_walk
     tag @s remove cable.me
-    tag @e[type=item_display,tag=cable.checked] remove cable.checked
+    tag @e[tag=cable.checked,type=item_display] remove cable.checked
 
-tag @e[type=item_display,tag=cable.checked] remove cable.checked
-execute align xyz as @e[dx=0,type=item_display,tag=cable.core,predicate=cable:same_type] run function ./node/core/destroy
+tag @e[tag=cable.checked,type=item_display] remove cable.checked
+execute align xyz as @e[dx=0,tag=cable.core,predicate=cable:same_type,type=item_display] run function ./node/core/destroy
 execute if block ~ ~ ~ moving_piston run setblock ~ ~ ~ air

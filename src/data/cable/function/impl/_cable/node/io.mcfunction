@@ -10,7 +10,7 @@ function ./io/summon:
     execute 
         positioned as @s 
         align xyz 
-        unless entity @n[dx=0,type=item_frame,tag=cable.connector,predicate=cable:same_direction] 
+        unless entity @n[dx=0,tag=cable.connector,predicate=cable:same_direction,type=item_frame] 
         positioned ~.5 ~.5 ~.5
         summon item_frame 
         run function ./io/connector/summon
@@ -21,8 +21,8 @@ function ./io/destroy:
     scoreboard players operation #predicate cable.direction = @s cable.direction
     execute 
         at @s align xyz 
-        unless entity @e[dx=0,type=item_display,tag=cable.io,predicate=!cable:same_type,predicate=cable:same_direction] 
-        as @n[dx=0,type=item_frame,tag=cable.connector,predicate=cable:same_direction] 
+        unless entity @e[dx=0,tag=cable.io,predicate=!cable:same_type,predicate=cable:same_direction,type=item_display] 
+        as @n[dx=0,tag=cable.connector,predicate=cable:same_direction,type=item_frame] 
         run function ./io/connector/destroy
 
 function ./io/update_model:
