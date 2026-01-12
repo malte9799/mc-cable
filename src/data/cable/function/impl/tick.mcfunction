@@ -1,16 +1,26 @@
 schedule function cable:impl/tick 1t replace
 
-function ./cable/node/tick
-function ./cable/process/tick
+# function ./cable/node/tick
+# function ./cable/process/tick
 
 # function ./cable/collision/tick
 # function ./cable/interaction/tick
 
 
-execute as @a[predicate=cable:debug_goggles] at @s run function ./tick/debug:
-    execute as @e[distance=..5,tag=energy.cable,type=item_display] run data modify entity @s CustomNameVisible set value 1b
-    execute as @e[distance=5..,tag=energy.cable,type=item_display] run data modify entity @s CustomNameVisible set value 0b
+# execute as @a at @s run function ./cable/collision/tick
+# execute as @a at @s anchored eyes positioned ^ ^ ^ positioned ~ ~.2 ~ run function ./cable/collision/tick
 
+#> @debug
+execute as @a at @s run kill @e[type=text_display,tag=debug,distance=5..]
+tag @e[type=text_display,tag=debug,tag=killme] add killme2
+tag @e[type=text_display,tag=debug] add killme
+execute as @a if items entity @s armor.head leather_helmet[minecraft:custom_data~{id:"debug:network_id"}] at @s as @e[type=item_display,tag=cable.core,distance=..5] at @s run function ./tick2:
+    execute if score @s itemio.network_id.low matches 1.. store result entity @s data.debug int 1 run scoreboard players get @s itemio.network_id.low
+    execute if score @s cable.network.low matches 1.. store result entity @s data.debug int 1 run scoreboard players get @s cable.network.low
+    execute run function ./tick3 with entity @s data:
+        $summon text_display ~ ~.1 ~ {billboard:"center",Tags:["debug"],text:"$(debug)",background:-16777216,see_through:false}
+kill @e[type=text_display,tag=debug,tag=killme2]
+#! @debug end
 
 execute as @a if score @s cable.wrench matches 1.. run function cable:impl/event/clicked_wrench
 

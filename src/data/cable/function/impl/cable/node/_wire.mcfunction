@@ -4,7 +4,7 @@ function ./wire/summon:
     # @context rotated {...} summon item_display
     # @input storage cable:data input - Cable registry entry
     execute if entity @s[tag=!cable.node] store result score #predicate cable.type run data get storage cable:data input.id
-    function ./summon
+    function ./init
     tag @s add cable.wire
     data modify entity @s item.components."minecraft:custom_model_data" set value {floats:[1f],flags:[1b]}
     execute align xyz unless entity @e[limit=1,dx=0,tag=cable.core,predicate=cable:same_type,type=item_display] run function ./core/add

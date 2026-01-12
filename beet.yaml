@@ -10,8 +10,8 @@ meta:
   min_version: "1.21.5"
   max_version: "1.21.11"
   mecha:
-    # formatting: preserve
-    formatting: minify
+    formatting: preserve
+    # formatting: minify
 
   lectern:
     snapshot: "snapshot.md"

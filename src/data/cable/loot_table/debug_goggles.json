@@ -1,0 +1,22 @@
+{
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:leather_helmet",
+          "functions": [
+            {
+              "function": "minecraft:set_components",
+              "components": {
+                "minecraft:custom_data": "{id:\"debug:network_id\"}",
+                "minecraft:item_model": "cable:goggles"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

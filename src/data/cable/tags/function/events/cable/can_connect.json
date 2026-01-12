@@ -1,5 +1,6 @@
 {
     "values": [
-        "cable:impl/cable/redstone/can_connect"
+        "cable:impl/cable/impl/redstone/can_connect",
+        "cable:impl/cable/impl/item/can_connect"
     ]
 }

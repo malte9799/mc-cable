@@ -5,7 +5,7 @@ function ./core/summon:
     # @input storage cable:data input - Cable registry entry
     scoreboard players set #predicate cable.direction 0
     execute if entity @s[tag=!cable.node] store result score #predicate cable.type run data get storage cable:data input.id
-    function ./summon
+    function ./init
     tag @s add cable.core
     data modify entity @s item.components."minecraft:custom_model_data" set value {flags:[0b]}
     function ./offset

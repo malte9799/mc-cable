@@ -50,17 +50,17 @@ execute if score #new cable.network.low matches 0 run function ./network/new_id
 
 # Check all 6 directions for #cable:events/can_connect function (IO)
 scoreboard players set #predicate cable.direction 1 # east
-execute align xyz rotated -90 0 positioned ^ ^ ^1 if function #cable:events/can_connect positioned ^ ^ ^-1 summon item_display run function ./place/io
+execute align xyz rotated -90 0 positioned ^ ^ ^1 if function #cable:events/cable/can_connect positioned ^ ^ ^-1 summon item_display run function ./place/io
 scoreboard players set #predicate cable.direction -1 # west
-execute align xyz rotated 90 0 positioned ^ ^ ^1 if function #cable:events/can_connect positioned ^ ^ ^-1 summon item_display run function ./place/io
+execute align xyz rotated 90 0 positioned ^ ^ ^1 if function #cable:events/cable/can_connect positioned ^ ^ ^-1 summon item_display run function ./place/io
 scoreboard players set #predicate cable.direction 2 # up
-execute align xyz rotated 0 -90 positioned ^ ^ ^1 if function #cable:events/can_connect positioned ^ ^ ^-1 summon item_display run function ./place/io
+execute align xyz rotated 0 -90 positioned ^ ^ ^1 if function #cable:events/cable/can_connect positioned ^ ^ ^-1 summon item_display run function ./place/io
 scoreboard players set #predicate cable.direction -2 # down
-execute align xyz rotated 0 90 positioned ^ ^ ^1 if function #cable:events/can_connect positioned ^ ^ ^-1 summon item_display run function ./place/io
+execute align xyz rotated 0 90 positioned ^ ^ ^1 if function #cable:events/cable/can_connect positioned ^ ^ ^-1 summon item_display run function ./place/io
 scoreboard players set #predicate cable.direction 3 # south
-execute align xyz rotated 0 0 positioned ^ ^ ^1 if function #cable:events/can_connect positioned ^ ^ ^-1 summon item_display run function ./place/io
+execute align xyz rotated 0 0 positioned ^ ^ ^1 if function #cable:events/cable/can_connect positioned ^ ^ ^-1 summon item_display run function ./place/io
 scoreboard players set #predicate cable.direction -3 # north
-execute align xyz rotated 180 0 positioned ^ ^ ^1 if function #cable:events/can_connect positioned ^ ^ ^-1 summon item_display run function ./place/io
+execute align xyz rotated 180 0 positioned ^ ^ ^1 if function #cable:events/cable/can_connect positioned ^ ^ ^-1 summon item_display run function ./place/io
 
 # If nothing has been placed yet, place a core
 execute align xyz unless entity @e[limit=1,dx=0,tag=cable.core,predicate=cable:same_type,type=item_display] summon item_display run function ./place/core
